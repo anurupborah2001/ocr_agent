@@ -1,7 +1,7 @@
 [project]
 name = "ocr-agent"
 version = "0.1.0"
-description = "OCR Agent is an agentic tool implemented in langraph to extract text from any media including pdf, images etc and even it can detect hand written text"
+description = "OCR Agent is an agentic tool implemented in LangGraph to extract text from images, PDFs, and handwritten media."
 readme = "README.md"
 requires-python = ">=3.11.8"
 dependencies = [
@@ -12,3 +12,26 @@ dependencies = [
     "langgraph>=1.1.10",
     "python-dotenv>=1.2.2",
 ]
+
+[project.optional-dependencies]
+dev = [
+    "black>=25.11.0",
+    "pre-commit>=3.3.3",
+    "pytest>=7.4.0",
+    "ruff>=0.15.11",
+]
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]

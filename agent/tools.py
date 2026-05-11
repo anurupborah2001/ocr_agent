@@ -1,14 +1,12 @@
-import os
 import base64
 import logging
-
+import os
 from pathlib import Path
 
 from dotenv import load_dotenv
-
 from langchain.tools import tool
-from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage
+from langchain_openai import ChatOpenAI
 
 load_dotenv()
 
@@ -29,20 +27,17 @@ llm_ocr_agent = ChatOpenAI(
 @tool
 def extract_text(asset_path: str) -> str:
     """
-    Extract text from image/PDF and save the extracted text
+    Extract text from an image or PDF and save the extracted text
     as a .txt file using the same asset filename.
     """
 
     try:
         asset = Path(asset_path)
 
-        # Read file as bytes
-        with open(asset_path, "rb") as f:
-            asset_bytes = f.read()
+        with asset.open("rb") as file_handle:
+            asset_bytes = file_handle.read()
 
-        # Convert to base64
         asset_base64 = base64.b64encode(asset_bytes).decode("utf-8")
-
         suffix = asset.suffix.lower()
 
         mime_type_map = {
@@ -52,13 +47,8 @@ def extract_text(asset_path: str) -> str:
             ".webp": "image/webp",
             ".pdf": "application/pdf",
         }
+        mime_type = mime_type_map.get(suffix, "application/octet-stream")
 
-        mime_type = mime_type_map.get(
-            suffix,
-            "application/octet-stream"
-        )
-
-        # Vision prompt
         prompt = [
             HumanMessage(
                 content=[
@@ -71,12 +61,7 @@ def extract_text(asset_path: str) -> str:
                     },
                     {
                         "type": "image_url",
-                        "image_url": {
-                            "url": (
-                                f"data:{mime_type};base64,"
-                                f"{asset_base64}"
-                            )
-                        },
+                        "image_url": {"url": f"data:{mime_type};base64,{asset_base64}"},
                     },
                 ]
             )
@@ -84,23 +69,14 @@ def extract_text(asset_path: str) -> str:
 
         response = llm_ocr_agent.invoke(prompt)
         extracted_text = response.content.strip()
-        ##Save extracted text to .txt file with same name as asset
-        output_file = (
-            Path(OUTPUT_FOLDER)
-            / f"{asset.stem}.txt"
-        )
+        output_file = Path(OUTPUT_FOLDER) / f"{asset.stem}.txt"
+        output_file.parent.mkdir(parents=True, exist_ok=True)
 
-        with open(output_file, "w", encoding="utf-8") as f:
-            f.write(extracted_text)
+        with output_file.open("w", encoding="utf-8") as file_handle:
+            file_handle.write(extracted_text)
 
-        logger.info(
-            f"Saved OCR text to: {output_file}"
-        )
-
+        logger.info("Saved OCR text to: %s", output_file)
         return extracted_text
-
-    except Exception as e:
-        logger.exception(
-            f"Error extracting text: {str(e)}"
-        )
-        return f"OCR extraction failed: {str(e)}"
+    except Exception as exc:  # pragma: no cover - exercised via return path
+        logger.exception("Error extracting text: %s", exc)
+        return f"OCR extraction failed: {exc}"
