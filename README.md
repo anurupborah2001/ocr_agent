@@ -1,37 +1,81 @@
-# OCR Agent
+# Multimodal OCR Engine
 
-An agentic, multimodal OCR and transcription pipeline built with LangGraph and LangChain for extracting text from images, PDFs, Excel workbooks, PowerPoint decks, audio, video, and supported remote URLs.
+![Multimodal OCR Engine](./images/github/multimodal-ocr-engine.png)
 
-The project routes each asset through the right extractor, persists the extracted text to the `output/` directory, and returns structured metadata back through the graph.
+A professional, graph-driven OCR and transcription engine built with LangGraph and LangChain for extracting text from documents, images, spreadsheets, presentations, audio, video, and supported remote URLs.
 
-## Overview
+The system routes each input through the right extraction path, persists the extracted result under `output/`, and returns structured metadata that is ready for downstream automation, audit workflows, or enrichment pipelines.
 
-`ocr-agent` is implemented as a LangGraph workflow instead of a single extraction function. A reasoning node decides when to call the extraction tool, the tool detects the asset type and dispatches to the correct extractor, and a final node normalizes the tool result into graph state.
+## Executive Summary
 
-This architecture is designed for:
+`Multimodal OCR Engine` is designed as an orchestration workflow rather than a single OCR utility. Instead of forcing every file through the same path, the engine:
 
-- multimodal OCR and transcription
-- large-file extraction with structured output
-- downstream automation and post-processing
-- future review, summarization, or enrichment steps
+- detects the asset type
+- selects the correct extractor
+- handles local files and supported URLs
+- writes normalized text output to disk
+- returns structured state through a LangGraph workflow
+
+This makes the project well suited for production-style document intake, audit support, content extraction, and multimodal transcription pipelines.
+
+## Key Capabilities
+
+- OCR for handwritten and printed images
+- PDF extraction with both direct text parsing and OCR fallback
+- Excel extraction with row-based chunking for large sheets
+- PowerPoint slide text extraction
+- Audio transcription with preprocessing and Whisper backends
+- Video transcription by extracting the audio track and reusing the audio pipeline
+- URL-based extraction for supported image, PDF, audio, and video inputs
+- Structured LangGraph state for clean downstream integration
 
 ## Architecture
 
-The graph currently contains three main stages:
+The engine is organized into three logical layers:
+
+- Orchestration layer: LangGraph workflow in [main.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/main.py)
+- Extraction layer: media-specific extractors in [agents/extractors.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/agents/extractors.py)
+- Vision/tooling layer: LangChain tool wrapper and vision-LLM helpers in [agents/tools.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/agents/tools.py) and [agents/vision_llm.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/agents/vision_llm.py)
+
+### Architecture Diagram
+
+```mermaid
+flowchart LR
+    A["Input Asset<br/>Local file or supported URL"] --> B["Type Detection<br/>detect_file_type()"]
+    B --> C["LangGraph Tool Node<br/>extract_asset_text"]
+    C --> D["Image OCR<br/>Tesseract or Vision LLM"]
+    C --> E["PDF Extraction<br/>Text parse or page OCR"]
+    C --> F["Excel Extraction<br/>Chunked row output"]
+    C --> G["PowerPoint Extraction<br/>Slide text parser"]
+    C --> H["Audio Extraction<br/>ffmpeg + Whisper"]
+    C --> I["Video Extraction<br/>audio track -> extract_audio()"]
+    D --> J["Normalized Text Output"]
+    E --> J
+    F --> J
+    G --> J
+    H --> J
+    I --> J
+    J --> K["output/*.txt"]
+    J --> L["Structured Graph State"]
+```
+
+### LangGraph Workflow
+
+The current graph is intentionally simple and robust:
 
 - `ocr_agent`: decides whether tool execution is required
-- `ocr_tool`: runs the `extract_asset_text` tool
-- `final_node`: parses the tool payload and writes structured fields back into state
+- `ocr_tool`: runs the extraction tool
+- `final_node`: parses the tool payload and writes the final structured result into state
 
-### LangGraph Diagram
+Graph image:
 
-![OCR LangGraph Architecture](./state_graph_ocr.png)
+![LangGraph Workflow](./images/github/state_graph_ocr.png)
 
-## Extraction Flow
+## Processing Flow
 
-The current implementation works like this:
+The extraction workflow follows these steps:
 
-1. [main.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/main.py) builds a `StateGraph` using [ocr_types/agent_type.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/ocr_types/agent_type.py).
+1. [main.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/main.py) builds a `StateGraph` using the typed state defined in [ocr_types/agent_type.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/ocr_types/agent_type.py).
 2. The graph state tracks:
    - `asset_path`
    - `file_type`
@@ -39,63 +83,59 @@ The current implementation works like this:
    - `extracted_text`
    - `output_path`
    - `messages`
-3. [agents/tools.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/agents/tools.py) validates the asset, detects its type, calls the right extractor, and writes the result to `output/<asset-name>.txt`.
-4. [agents/extractors.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/agents/extractors.py) handles media-specific extraction:
-   - images: Tesseract or vision-LLM handwriting extraction
-   - PDFs: direct text extraction or page-image OCR
-   - Excel: row-chunked sheet extraction
-   - PowerPoint: slide text extraction
-   - audio: preprocessing with `ffmpeg` and Whisper transcription
-   - video: audio extraction from the video, then reuse of `extract_audio()`
-   - URLs: download/resolve remote assets before extraction where supported
-5. `final_node` returns a structured result instead of sending the full tool output back through the LLM again, which avoids large payload failures.
+3. The `ocr_agent` node prompts the LLM to call `extract_asset_text` when extraction is required.
+4. [agents/tools.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/agents/tools.py) validates the asset, detects the type, invokes the correct extractor, and writes the result to `output/<asset-name>.txt`.
+5. [agents/extractors.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/agents/extractors.py) dispatches to the relevant media extractor.
+6. `final_node` returns the normalized extraction result without sending the full extracted body back into the LLM, which prevents oversized follow-up requests for large files such as spreadsheets.
 
-## Project Structure
+## Supported Inputs
+
+| Category | Supported Types |
+| --- | --- |
+| Images | `.png`, `.jpg`, `.jpeg`, `.webp`, `.bmp`, `.tiff` |
+| PDFs | `.pdf` |
+| Text/Data | `.txt`, `.md`, `.json`, `.xml`, `.html`, `.csv`, `.yaml`, `.yml` |
+| Word | `.docx` |
+| Excel | `.xlsx`, `.xls` |
+| PowerPoint | `.pptx` |
+| Audio | `.mp3`, `.wav`, `.m4a`, `.aac`, `.flac`, `.ogg` |
+| Video | `.mp4`, `.mov`, `.avi`, `.mkv`, `.webm` |
+| Remote URLs | Supported for image, PDF, audio, and video flows |
+
+## Repository Structure
 
 ```text
 ocr-agent/
 ├── agents/
-│   ├── extractors.py
-│   ├── tools.py
-│   └── vision_llm.py
-├── assets/
-├── ocr_types/
-├── output/
-├── tests/
-├── main.py
-├── pyproject.toml
-├── .pre-commit-config.yaml
-└── state_graph_ocr.png
+│   ├── extractors.py         # Media-specific extraction logic
+│   ├── tools.py              # LangChain tool wrapper and output writer
+│   └── vision_llm.py         # Vision LLM helpers for image classification and handwriting OCR
+├── assets/                   # Sample local inputs
+├── images/github/            # README visuals
+├── ocr_types/                # Typed LangGraph state
+├── output/                   # Generated extraction outputs
+├── tests/                    # Pytest coverage
+├── main.py                   # LangGraph workflow entrypoint
+├── pyproject.toml            # Dependencies and tool configuration
+└── .pre-commit-config.yaml   # Pre-commit automation
 ```
-
-## Supported Inputs
-
-- images: `.png`, `.jpg`, `.jpeg`, `.webp`, `.bmp`, `.tiff`
-- PDFs: `.pdf`
-- text and data files: `.txt`, `.md`, `.json`, `.xml`, `.html`, `.csv`, `.yaml`, `.yml`
-- Word: `.docx`
-- spreadsheets: `.xlsx`, `.xls`
-- PowerPoint: `.pptx`
-- audio: `.mp3`, `.wav`, `.m4a`, `.aac`, `.flac`, `.ogg`
-- video: `.mp4`, `.mov`, `.avi`, `.mkv`, `.webm`
-- remote URLs for supported image, PDF, audio, and video flows
 
 ## Bundled Sample Assets
 
-The repository currently includes these example inputs:
+The repository currently ships with representative multimodal examples:
 
-| Asset | Type | Output |
+| Asset | Type | Generated Output |
 | --- | --- | --- |
 | `assets/hand-written.png` | Handwritten image | `output/hand-written.txt` |
 | `assets/cursive_writing.pdf` | PDF worksheet | `output/cursive_writing.txt` |
 | `assets/audit-excel.xlsx` | Excel workbook | `output/audit-excel.txt` |
 | `assets/ocr.pptx` | PowerPoint deck | `output/ocr.txt` |
-| `assets/bryan-adams-cloud-9.mp3` | Audio | `output/bryan-adams-cloud-9.txt` |
-| `assets/bryan-adams-summer-of-69.mp4` | Video | `output/bryan-adams-summer-of-69.txt` |
+| `assets/bryan-adams-cloud-9.mp3` | Audio sample | `output/bryan-adams-cloud-9.txt` |
+| `assets/bryan-adams-summer-of-69.mp4` | Video sample | `output/bryan-adams-summer-of-69.txt` |
 
 ## Sample Output
 
-Below are representative snippets from the actual generated files in `output/`.
+The snippets below are taken from the actual files currently present in `output/`.
 
 ### Handwritten Image
 
@@ -173,23 +213,23 @@ Played it till my fingers bled
 Was the summer of 69
 ```
 
-## How To Run
+## Installation
 
-### 1. Install dependencies
+### Python Dependencies
 
-With `uv`:
+Using `uv`:
 
 ```bash
 uv sync
 ```
 
-Or with `pip`:
+Using `pip`:
 
 ```bash
 pip install -e .[dev]
 ```
 
-### 2. Configure environment variables
+### Environment Variables
 
 Create a `.env` file in the project root:
 
@@ -197,7 +237,7 @@ Create a `.env` file in the project root:
 GITHUB_TOKEN=your_token_here
 ```
 
-### 3. Install native/runtime requirements
+### Native Requirements
 
 For audio and video extraction on macOS:
 
@@ -205,35 +245,44 @@ For audio and video extraction on macOS:
 brew install ffmpeg
 ```
 
-### 4. Run the workflow
+Tesseract is also required for printed-image OCR paths.
+
+## Usage
+
+Run the workflow with:
 
 ```bash
 python main.py
 ```
 
-By default, [main.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/main.py) currently points at an Excel sample asset, generates the graph diagram, runs extraction, and writes the result into `output/`.
+By default, [main.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/main.py) points at a bundled Excel asset and will:
+
+1. generate the workflow diagram
+2. execute extraction
+3. write the extracted output under `output/`
+4. return structured metadata through the graph
 
 ## Testing And Quality Gates
 
-Run tests directly with:
+Run tests directly:
 
 ```bash
 pytest
 ```
 
-Install hooks:
+Install git hooks:
 
 ```bash
 pre-commit install --hook-type pre-commit --hook-type commit-msg --hook-type pre-push
 ```
 
-Run all checks:
+Run the full local quality suite:
 
 ```bash
 pre-commit run --all-files
 ```
 
-The configured checks include:
+Configured checks include:
 
 - `pre-commit-hooks`
 - `ruff`
@@ -241,17 +290,24 @@ The configured checks include:
 - conventional commit validation
 - `pytest`
 
-## Design Highlights
+## Design Notes
 
-- Multimodal extraction across document, image, audio, and video inputs
-- URL-aware extraction for supported remote assets
-- Excel extraction chunking to avoid oversized payloads
-- Video transcription built by reusing the audio extractor
-- Structured LangGraph state and persisted output files
+- Large Excel workbooks are chunked by row range to keep output manageable.
+- Video transcription is implemented by extracting the audio track and reusing `extract_audio()`.
+- Supported remote assets are downloaded to temporary storage and cleaned up automatically.
+- Heavy dependencies are imported lazily where possible to reduce import-time fragility.
+- Final graph routing avoids sending large extraction bodies back through the LLM, which prevents token-limit failures on files such as spreadsheets.
 
-## Notes
+## Technology Stack
 
-- Large workbook output is chunked by row range in the generated `.txt` file.
-- Some extractors depend on local native/runtime tools such as `ffmpeg` and Tesseract.
-- Heavy dependencies are imported lazily inside extractor functions where practical.
-- The generated text quality depends on source quality, handwriting complexity, audio clarity, and model/backend availability.
+- Python 3.11+
+- LangGraph
+- LangChain
+- LangChain OpenAI
+- `gpt-4o`
+- Tesseract OCR
+- Whisper / Faster-Whisper
+- PyMuPDF
+- `ffmpeg`
+- `yt-dlp`
+- `python-dotenv`
