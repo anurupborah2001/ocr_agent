@@ -1,6 +1,8 @@
-# Multimodal OCR Engine
+<h1 align="center">Multimodal OCR Engine</h1>
 
-![Multimodal OCR Engine](./images/github/multimodal-ocr-engine.png)
+<p align="center">
+  <img src="./images/github/multimodal-ocr-engine.png" alt="Multimodal OCR Engine" width="360" />
+</p>
 
 A professional, graph-driven OCR and transcription engine built with LangGraph and LangChain for extracting text from documents, images, spreadsheets, presentations, audio, video, and supported remote URLs.
 
