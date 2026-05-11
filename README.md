@@ -1,96 +1,183 @@
 # OCR Agent
 
-An elegant, agentic OCR pipeline built with LangGraph and LangChain for extracting text from images, scanned documents, and PDFs, including handwritten content.
+An agentic, multimodal OCR and transcription pipeline built with LangGraph and LangChain for extracting text from images, PDFs, Excel workbooks, PowerPoint decks, audio, video, and supported remote URLs.
 
-The project combines a reasoning layer with a dedicated OCR tool, allowing the agent to decide when text extraction is needed and to return clean transcriptions while also saving results to disk.
+The project routes each asset through the right extractor, persists the extracted text to the `output/` directory, and returns structured metadata back through the graph.
 
 ## Overview
 
-`ocr-agent` uses a LangGraph state machine to orchestrate OCR as an agent workflow instead of a single direct function call. The agent receives an asset path and a user instruction, evaluates the request, invokes the OCR tool when needed, and returns the extracted text.
+`ocr-agent` is implemented as a LangGraph workflow instead of a single extraction function. A reasoning node decides when to call the extraction tool, the tool detects the asset type and dispatches to the correct extractor, and a final node normalizes the tool result into graph state.
 
-This design makes the project easy to extend for:
+This architecture is designed for:
 
-- multi-step document workflows
-- validation or post-processing stages
-- structured extraction pipelines
-- human-in-the-loop review steps
+- multimodal OCR and transcription
+- large-file extraction with structured output
+- downstream automation and post-processing
+- future review, summarization, or enrichment steps
 
 ## Architecture
 
-The LangGraph workflow consists of two core nodes:
+The graph currently contains three main stages:
 
-- `ocr_agent`: the reasoning node powered by `ChatOpenAI`
-- `ocr_tool`: a tool execution node that runs the OCR extraction function
-
-The flow starts at the agent node. If the model determines that OCR is required, LangGraph routes execution to the tool node. After the tool runs, control returns to the agent, which can then respond with the extracted content.
+- `ocr_agent`: decides whether tool execution is required
+- `ocr_tool`: runs the `extract_asset_text` tool
+- `final_node`: parses the tool payload and writes structured fields back into state
 
 ### LangGraph Diagram
 
 ![OCR LangGraph Architecture](./state_graph_ocr.png)
 
-## OCR Process
+## Extraction Flow
 
-The OCR pipeline implemented in this repository follows these steps:
+The current implementation works like this:
 
-1. The application starts in [main.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/main.py) and loads environment variables with `python-dotenv`.
-2. A LangGraph `StateGraph` is created using the shared state type defined in [ocr_types/agent_type.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/ocr_types/agent_type.py).
-3. The state includes:
-   - `asset_path`: the input file to process
-   - `messages`: the running conversation state for the agent
-4. The `ocr_agent` node receives the current state and injects a system instruction telling the model that it is an OCR assistant and that it may use the OCR tool.
-5. If the model decides that text extraction is needed, LangGraph routes execution to the tool node through `tools_condition`.
-6. The `extract_text` tool in [agent/tools.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/agent/tools.py):
-   - reads the file from disk
-   - converts the file into Base64
-   - maps the file extension to the correct MIME type
-   - sends the document to a vision-capable `gpt-4o` model
-   - asks the model to return only the extracted text
-7. The extracted text is written to the `output/` directory using the source filename, for example `output/hand-written.txt`.
-8. The tool returns the text to the graph, and the agent completes the interaction with the OCR result in state.
+1. [main.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/main.py) builds a `StateGraph` using [ocr_types/agent_type.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/ocr_types/agent_type.py).
+2. The graph state tracks:
+   - `asset_path`
+   - `file_type`
+   - `image_text_type`
+   - `extracted_text`
+   - `output_path`
+   - `messages`
+3. [agents/tools.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/agents/tools.py) validates the asset, detects its type, calls the right extractor, and writes the result to `output/<asset-name>.txt`.
+4. [agents/extractors.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/agents/extractors.py) handles media-specific extraction:
+   - images: Tesseract or vision-LLM handwriting extraction
+   - PDFs: direct text extraction or page-image OCR
+   - Excel: row-chunked sheet extraction
+   - PowerPoint: slide text extraction
+   - audio: preprocessing with `ffmpeg` and Whisper transcription
+   - video: audio extraction from the video, then reuse of `extract_audio()`
+   - URLs: download/resolve remote assets before extraction where supported
+5. `final_node` returns a structured result instead of sending the full tool output back through the LLM again, which avoids large payload failures.
 
 ## Project Structure
 
 ```text
 ocr-agent/
-├── agent/
-│   └── tools.py              # OCR tool implementation
+├── agents/
+│   ├── extractors.py
+│   ├── tools.py
+│   └── vision_llm.py
 ├── assets/
-│   └── hand-written.png      # Sample input asset
 ├── ocr_types/
-│   └── agent_type.py         # Shared LangGraph state definition
 ├── output/
-│   └── hand-written.txt      # Sample OCR output
-├── main.py                   # Graph assembly and execution entrypoint
-├── pyproject.toml            # Project metadata and dependencies
-└── state_graph_ocr.png       # Generated LangGraph architecture diagram
+├── tests/
+├── main.py
+├── pyproject.toml
+├── .pre-commit-config.yaml
+└── state_graph_ocr.png
 ```
-
-## Tech Stack
-
-- Python 3.11+
-- LangGraph
-- LangChain
-- LangChain OpenAI
-- `gpt-4o` vision model
-- `python-dotenv`
 
 ## Supported Inputs
 
-The OCR tool currently recognizes these file types:
+- images: `.png`, `.jpg`, `.jpeg`, `.webp`, `.bmp`, `.tiff`
+- PDFs: `.pdf`
+- text and data files: `.txt`, `.md`, `.json`, `.xml`, `.html`, `.csv`, `.yaml`, `.yml`
+- Word: `.docx`
+- spreadsheets: `.xlsx`, `.xls`
+- PowerPoint: `.pptx`
+- audio: `.mp3`, `.wav`, `.m4a`, `.aac`, `.flac`, `.ogg`
+- video: `.mp4`, `.mov`, `.avi`, `.mkv`, `.webm`
+- remote URLs for supported image, PDF, audio, and video flows
 
-- `.png`
-- `.jpg`
-- `.jpeg`
-- `.webp`
-- `.pdf`
+## Bundled Sample Assets
 
-Unknown file types fall back to `application/octet-stream`.
+The repository currently includes these example inputs:
+
+| Asset | Type | Output |
+| --- | --- | --- |
+| `assets/hand-written.png` | Handwritten image | `output/hand-written.txt` |
+| `assets/cursive_writing.pdf` | PDF worksheet | `output/cursive_writing.txt` |
+| `assets/audit-excel.xlsx` | Excel workbook | `output/audit-excel.txt` |
+| `assets/ocr.pptx` | PowerPoint deck | `output/ocr.txt` |
+| `assets/bryan-adams-cloud-9.mp3` | Audio | `output/bryan-adams-cloud-9.txt` |
+| `assets/bryan-adams-summer-of-69.mp4` | Video | `output/bryan-adams-summer-of-69.txt` |
+
+## Sample Output
+
+Below are representative snippets from the actual generated files in `output/`.
+
+### Handwritten Image
+
+Asset: [hand-written.png](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/assets/hand-written.png)  
+Output: [hand-written.txt](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/output/hand-written.txt)
+
+```text
+Lorem ifsum dolor sit amet, consectetur
+
+adifiscing Chit. Morbi dolor Libero, rhoncus et
+sapien vitae, voluthat cowallis lectus. Etiam
+lobortis eget facus id maximus.
+```
+
+### PDF
+
+Asset: [cursive_writing.pdf](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/assets/cursive_writing.pdf)  
+Output: [cursive_writing.txt](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/output/cursive_writing.txt)
+
+```text
+--- PAGE 1 | printed_image ---
+Kidde, Cursive Writing Practice
+
+Worksheet
+
+Name : Date :
+```
+
+### Excel
+
+Asset: [audit-excel.xlsx](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/assets/audit-excel.xlsx)  
+Output: [audit-excel.txt](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/output/audit-excel.txt)
+
+```text
+=== SHEET: Data ===
+
+--- ROWS 1 TO 200 OF 500 ---
+Transaction_ID       Date    Category        Account_Name Department
+     TXN-10000 04/13/2025     Expense            Salaries        R&D
+     TXN-10001 08/03/2025     Revenue     Consulting Fees Operations
+```
+
+### PowerPoint
+
+Asset: [ocr.pptx](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/assets/ocr.pptx)  
+Output: [ocr.txt](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/output/ocr.txt)
+
+```text
+--- SLIDE 1 ---
+
+State of and Trends in OCR Technology
+By Jim Hill, Solutions Specialist
+```
+
+### Audio
+
+Asset: [bryan-adams-cloud-9.mp3](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/assets/bryan-adams-cloud-9.mp3)  
+Output: [bryan-adams-cloud-9.txt](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/output/bryan-adams-cloud-9.txt)
+
+```text
+Clue number one was when you knocked on my door.
+Clue number two was the look that you wore.
+And that's when I knew it was a pretty good sign.
+```
+
+### Video
+
+Asset: [bryan-adams-summer-of-69.mp4](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/assets/bryan-adams-summer-of-69.mp4)  
+Output: [bryan-adams-summer-of-69.txt](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/output/bryan-adams-summer-of-69.txt)
+
+```text
+I got my first real six string
+Bought it at the five and dime
+Played it till my fingers bled
+Was the summer of 69
+```
 
 ## How To Run
 
 ### 1. Install dependencies
 
-If you are using `uv`:
+With `uv`:
 
 ```bash
 uv sync
@@ -99,7 +186,7 @@ uv sync
 Or with `pip`:
 
 ```bash
-pip install -e .
+pip install -e .[dev]
 ```
 
 ### 2. Configure environment variables
@@ -110,60 +197,61 @@ Create a `.env` file in the project root:
 GITHUB_TOKEN=your_token_here
 ```
 
-The current implementation uses:
+### 3. Install native/runtime requirements
 
-- Azure-hosted inference endpoint via `base_url="https://models.inference.ai.azure.com"`
-- `GITHUB_TOKEN` as the API credential
+For audio and video extraction on macOS:
 
-### 3. Run the example
+```bash
+brew install ffmpeg
+```
+
+### 4. Run the workflow
 
 ```bash
 python main.py
 ```
 
-By default, the script processes:
+By default, [main.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/main.py) currently points at an Excel sample asset, generates the graph diagram, runs extraction, and writes the result into `output/`.
 
-```text
-assets/hand-written.png
+## Testing And Quality Gates
+
+Run tests directly with:
+
+```bash
+pytest
 ```
 
-and saves the extracted text to:
+Install hooks:
 
-```text
-output/hand-written.txt
+```bash
+pre-commit install --hook-type pre-commit --hook-type commit-msg --hook-type pre-push
 ```
 
-## Example Execution Flow
+Run all checks:
 
-When `main.py` runs:
+```bash
+pre-commit run --all-files
+```
 
-1. the graph is compiled
-2. the LangGraph Mermaid diagram is generated
-3. the diagram is exported as `state_graph_ocr.png`
-4. the sample image is passed into the workflow
-5. the OCR tool extracts and stores the transcription
+The configured checks include:
+
+- `pre-commit-hooks`
+- `ruff`
+- `black`
+- conventional commit validation
+- `pytest`
 
 ## Design Highlights
 
-- Agentic workflow rather than a one-off OCR function
-- Clear separation between reasoning and tool execution
-- Reusable typed graph state
-- Persisted output for downstream processing
-- Ready for extension into richer document understanding pipelines
-
-## Extension Ideas
-
-This codebase is a strong starting point for adding:
-
-- multi-page PDF chunking
-- confidence scoring or verification
-- markdown or JSON structured output
-- key-value extraction from forms
-- table detection and extraction
-- batch OCR processing
+- Multimodal extraction across document, image, audio, and video inputs
+- URL-aware extraction for supported remote assets
+- Excel extraction chunking to avoid oversized payloads
+- Video transcription built by reusing the audio extractor
+- Structured LangGraph state and persisted output files
 
 ## Notes
 
-- The current sample execution path is hardcoded in [main.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/main.py).
-- The OCR tool writes plain text files to `output/`.
-- The graph image is generated programmatically each time the script runs.
+- Large workbook output is chunked by row range in the generated `.txt` file.
+- Some extractors depend on local native/runtime tools such as `ffmpeg` and Tesseract.
+- Heavy dependencies are imported lazily inside extractor functions where practical.
+- The generated text quality depends on source quality, handwriting complexity, audio clarity, and model/backend availability.

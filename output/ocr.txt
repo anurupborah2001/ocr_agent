@@ -1,0 +1,180 @@
+
+--- SLIDE 1 ---
+
+State of and Trends in OCR Technology
+By Jim Hill, Solutions Specialist
+       jim@ufcinc.com
+      @jimhill100
+MMDPSpring 2016 Meeting
+
+--- SLIDE 2 ---
+
+Overview
+
+Definition of Optical Character Recognition (OCR) Software
+Current State of OCR Technology
+Challenges with OCR Technology
+Current Trends in OCR
+Brief Recap
+
+
+--- SLIDE 3 ---
+
+I. Definition of Optical Character Recognition (OCR) Software
+Definition:  “Electronic conversion of images of typed, handwritten or printed text into machine-encoded text” (Wikipedia). 
+This definition includes ICR (intelligent character recognition) for handwriting recognition.
+Some closely related technologies are important to consider and included in the OCR category:
+OMR (Optical Mark Recognition), checkmarks and signature presence 
+Barcode Recognition in all their various 1-d and 2-d forms 
+
+--- SLIDE 4 ---
+
+II. Current State of OCR Technology
+Where are we with OCR software in 2016?
+Small group of mature software OCR engine suppliers.
+Release level 10.x and above
+Several company's products are considered a commodity, especially within government
+Commercial products include advanced feature sets as standard. 
+De-speckle, De-skew, Binarization (convert color to b/w), line removal (from book spines and copy machines), multi-language including RTL, scripting of processing variables, wide variety of input sources (scanning, watched network folders, monitor SharePoint Server library, email attachments and message body text), on and on . . .
+
+--- SLIDE 5 ---
+
+II. Current State of OCR Technology
+Poor functionality and choices in open source alternatives. 
+Possibilities include Tesseract, Google OCR (cloud-based), Cuneiform
+Main reason is the commercial vendors aren’t sharing their proprietary technology! The need to recoup their investment costs - scientists and mathematicians are expensive. Also, globalization drove need for many more languages which was expensive. Finally, applications of OCR technology became much more numerous which was profitable.
+Open source lends itself well to a need for simple OCR extraction from perfect, constant form documents.
+ICR and OMR options are extremely limited in the open source world.
+
+--- SLIDE 6 ---
+
+II. Current State of OCR Technology
+Main Commercial Players in OCR Technology:
+ABBYY
+Nuance
+Recostar (owned by EMC)
+Readsoft
+IRIS
+Smaller Players Include:
+TOCR
+AnyDoc
+Nicomsoft
+Leadtools
+
+
+--- SLIDE 7 ---
+
+II. Current State of OCR Technology
+Important to remember the large difference between OCR engines versus OCR applications. 
+OCR engines are mature technology which use SDK’s to create applications. This is BCG Growth Share “cash cow”. 
+OCR applications are an emerging field in which OCR engines are utilized to create applications such as invoice processing systems.  This is the BCG “rising star.”
+
+--- SLIDE 8 ---
+
+II. Current State of OCR Technology
+It’s important to remember that OCR technology unlocks the use of many applications related to OCR. Here are a few:
+Document classification. Software examines documents to determine their type such as invoice, letter, legal document. 
+Used in “digital mailroom” applications. Scan everything, then email it or attach it to an electronic workflow routing system.
+Rapid detection of “actionable information.” Example, an important legal document is received in the mail room but takes three days for the company to act upon this crucially important information.  (Illustration) 
+
+--- SLIDE 9 ---
+
+II. Current State of OCR Technology
+More Related Applications:
+Automatic indexing. Assign metadata and filenames to documents based upon their content.
+For example, in this document extract the author’s name and add this to filename.
+
+--- SLIDE 10 ---
+
+II. Current State of OCR Technology
+Automated invoice processing. Software determines vendor, business unit, line items, assignment of general ledger account #, and provides 2 way and 3 way matching for the AP process. This is easily becoming the most popular product for the major OCR vendors.
+Semantic (meaning) based analysis of content. Software uses meaning of words to assign metadata indexes or extract meaning. Example, “fire a cannon” versus “fire a clay pot.” This is increasingly required in the world of Big Data where organizations need to locate documents more accurately and reduce the volume of documents returned in a search such as doing the legal discovery process. 
+
+
+--- SLIDE 11 ---
+
+III. Challenges with OCR Technology
+OCR Performance
+Tradeoff of adding CPU cores for performance versus licensing cost 
+Commercial products are multi-threaded and scale linearly
+Approximate baseline performance value is ½ second per page on a standard quad-core Windows computer
+Second tradeoff: Increasing OCR quality at the expense of increasing processing time
+On the order of 50% difference
+
+--- SLIDE 12 ---
+
+III. Challenges with OCR Technology
+OCR Performance
+Small fonts can pose challenges for acceptable OCR. Be sure to test with different engines.
+Pricing of Commercial Products Can Be Daunting
+Price models run from per page per year, to per page (for one time backlog conversion), to CPU based (as many as you can run on a single CPU)
+
+--- SLIDE 13 ---
+
+III. Challenges with OCR Technology
+Application Development Challenges
+OCR engine API’s are complex. Developing an OCR application can be daunting. 
+Limited knowledge base for outsourcing drives development to the engine vendors and their partners. 
+Unique PDF Requirement for PDF/UA is proving extremely challenging
+Template development for automatic extraction requires deep product level knowledge.
+Automated “wizards” reduce the time but still build templates behind the scenes. These then must be edited in order to accomplish the initial extraction goal. 
+
+--- SLIDE 14 ---
+
+IV. Current Trends in OCR
+PDF, especially PDF/A image over text with the searchable layer underneath is becoming the export standard.
+Larger volumes of documents (consider archival projects) are driving automatic classification and extraction technologies.
+Automatic language detection is becoming universal among OCR vendors.
+OCR technology will always have limits and can never fix poor quality images.
+Fuzzy techniques are being used such as database lookup to improve results. 
+
+--- SLIDE 15 ---
+
+IV. Current Trends in OCR
+Lexical analysis to extract meaning (semantics) is an emerging trend
+Huge development of OCR applications is happening based upon existing OCR technology versus new low-level OCR engines (SDK)
+Natural Language Text Processing (ABBYY Compreno); uses a combination of semantics, syntax, and statistics to determine the true “’meaning” of a document. 
+Template “training,”, everything is done with the software operator in mind (auto-templating).
+Automated classification, determining document types.
+Repeat Point: Application vs. SDK; although we do receive a small number of “engine” requests, it seems as though people want to use the full power of the application due to number of advanced features (zoom to zone, image preview, training, etc.).
+Cloud-based processing with access by web service interface.
+
+--- SLIDE 16 ---
+
+IV. Current Trends in OCR
+Ongoing migration from premise-based systems to servers running in the cloud.
+Vendors such Amazon and Microsoft Azure
+Makes it very easy to increase the capacity of the OCR server. 
+No charges when the servers aren’t running except to pay for the static IP.
+Most universities already operate in virtual environment anyway, this just moves the infrastructure. 
+
+--- SLIDE 17 ---
+
+V. Brief Recap
+Key Points:
+Small set of commercial OCR vendors offer mature products in SDK form with many new applications emerging based upon the technology.
+As of yet there are limited open source options.
+Key trend is toward the development of advanced OCR applications using the commercial SDK engines.
+Trend towards advanced classification (digital mailroom) and semantic technology (determination of meaning).
+Trend towards cloud-based processing
+
+
+
+--- SLIDE 18 ---
+
+Thank You!
+Refer to the Latest Schedule for our Upcoming Demonstrations:
+10:45 am:   ABBYY FlexiCapture (Intelligent Data Extraction OCR/IMR/OMR)
+11:15 am:  ABBYY Recognition Server (Server Based OCR)
+
+My Contact Information:  jim@ufcinc.com   https://www.ufcinc.com Phone: (248) 447-0102
+
+--- SLIDE 19 ---
+
+Conference Goals
+Unique Needs of the University Community (as pertaining to OCR Solutions):
+ Various ongoing digitization initiatives of books, periodicals, and other materials (project by project basis) such as the Spartan Archive Project. 
+Ongoing need to index documents in order to provide for full text search as well as keyword search from the metadata indexes
+Proliferation of technology makes it difficult for digital practitioners in the university to keep up with available software products in the OCR market. 
+Needs to preserve information that only exists in digital form by transferring to some other format, the Digital Curation Planning Project.    PDF/A speaks to this need.
+ The Michigan Digital Practitioners provides a place for people to share success stories in the area. 

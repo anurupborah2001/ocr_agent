@@ -37,8 +37,9 @@ class StubDrawableGraph:
 
 
 class StubGraphWrapper:
-    def __init__(self):
+    def __init__(self, edges=None):
         self.drawable = StubDrawableGraph()
+        self.edges = edges or []
 
     def get_graph(self):
         return self.drawable
@@ -65,7 +66,7 @@ def load_main_with_langgraph_stubs(monkeypatch):
             self.conditional_edges.append((source, condition, mapping))
 
         def compile(self):
-            return StubGraphWrapper()
+            return StubGraphWrapper(edges=list(self.edges))
 
     stub_graph_module.START = "START"
     stub_graph_module.END = "END"
@@ -81,6 +82,9 @@ def load_main_with_langgraph_stubs(monkeypatch):
         sys.modules, "langgraph.graph.message", stub_graph_message_module
     )
     monkeypatch.setitem(sys.modules, "langgraph.prebuilt", stub_prebuilt_module)
+    stub_tools_module = ModuleType("agents.tools")
+    stub_tools_module.extract_asset_text = object()
+    monkeypatch.setitem(sys.modules, "agents.tools", stub_tools_module)
     sys.modules.pop("ocr_types.agent_type", None)
     sys.modules.pop("main", None)
 
@@ -133,3 +137,10 @@ def test_run_ocr_invokes_graph_with_expected_payload(monkeypatch):
     assert len(graph.calls) == 1
     assert isinstance(graph.calls[0]["messages"][0], HumanMessage)
     assert graph.calls[0]["messages"][0].content == "Read everything in this image."
+
+
+def test_build_state_graph_routes_tool_output_to_final_node(monkeypatch):
+    main = load_main_with_langgraph_stubs(monkeypatch)
+    graph = main.build_state_graph()
+
+    assert ("ocr_tool", "final_node") in graph.edges

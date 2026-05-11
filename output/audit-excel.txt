@@ -1,0 +1,509 @@
+
+=== SHEET: Data ===
+
+--- ROWS 1 TO 200 OF 500 ---
+Transaction_ID       Date    Category        Account_Name Department                                           Description  Amount_USD Approved_By Audit_Status  GL_Code
+     TXN-10000 04/13/2025     Expense            Salaries        R&D                 Standard Salaries transaction for R&D     3909.47  A. Johnson     Verified     5100
+     TXN-10001 08/03/2025     Revenue     Consulting Fees Operations   Standard Consulting Fees transaction for Operations     3025.52  A. Johnson     Verified     4200
+     TXN-10002 12/10/2025     Expense        Rent Expense        G&A             Standard Rent Expense transaction for G&A      957.85  A. Johnson     Verified     5200
+     TXN-10003 08/24/2025      Assets                Cash        R&D                     Standard Cash transaction for R&D     3078.67    T. Brown     Verified     1100
+     TXN-10004 09/28/2025     Revenue     Consulting Fees        G&A          Standard Consulting Fees transaction for G&A     2982.45 M. Williams     Verified     4200
+     TXN-10005 01/21/2025      Assets           Inventory  Marketing          Standard Inventory transaction for Marketing     4746.98  A. Johnson      Flagged     1300
+     TXN-10006 02/22/2025 Liabilities    Unearned Revenue        G&A         Standard Unearned Revenue transaction for G&A      654.09 M. Williams     Verified     2300
+     TXN-10007 07/25/2025      Assets   Prepaid Insurance  Marketing  Standard Prepaid Insurance transaction for Marketing     3329.49  A. Johnson     Verified     1400
+     TXN-10008 11/06/2025      Equity        Common Stock  Marketing       Standard Common Stock transaction for Marketing     3886.91  A. Johnson      Pending     3100
+     TXN-10009 09/27/2025     Expense     Office Supplies Operations   Standard Office Supplies transaction for Operations     1973.95    J. Smith     Verified     5300
+     TXN-10010 08/05/2025     Expense      Travel Expense        G&A           Standard Travel Expense transaction for G&A     1416.20    J. Smith     Verified     5400
+     TXN-10011 12/11/2025      Assets   Prepaid Insurance      Sales      Standard Prepaid Insurance transaction for Sales     1033.64 M. Williams     Verified     1400
+     TXN-10012 03/22/2025     Revenue     Consulting Fees      Sales        Standard Consulting Fees transaction for Sales     3049.50  A. Johnson      Pending     4200
+     TXN-10013 01/28/2025      Assets   Prepaid Insurance        G&A        Standard Prepaid Insurance transaction for G&A     1687.95 M. Williams     Verified     1400
+     TXN-10014 04/09/2025     Expense           Utilities        R&D                Standard Utilities transaction for R&D     2387.46  A. Johnson     Verified     5500
+     TXN-10015 01/05/2025 Liabilities    Unearned Revenue        R&D         Standard Unearned Revenue transaction for R&D     2637.53  A. Johnson     Verified     2300
+     TXN-10016 06/28/2025      Assets   Prepaid Insurance Operations Standard Prepaid Insurance transaction for Operations     2567.42 M. Williams      Pending     1400
+     TXN-10017 08/25/2025     Revenue       Product Sales        G&A            Standard Product Sales transaction for G&A     4717.13 M. Williams      Flagged     4100
+     TXN-10018 10/11/2025 Liabilities    Accrued Expenses Operations  Standard Accrued Expenses transaction for Operations     1513.39    T. Brown     Verified     2200
+     TXN-10019 12/06/2025     Revenue     Service Revenue        G&A          Standard Service Revenue transaction for G&A     1813.67    J. Smith      Pending     4300
+     TXN-10020 05/01/2025     Expense            Salaries      Sales               Standard Salaries transaction for Sales     1558.67 M. Williams     Verified     5100
+     TXN-10021 06/14/2025      Assets           Inventory  Marketing          Standard Inventory transaction for Marketing     1721.20  A. Johnson      Pending     1300
+     TXN-10022 08/21/2025     Expense     Office Supplies      Sales        Standard Office Supplies transaction for Sales     1306.88 M. Williams     Verified     5300
+     TXN-10023 04/23/2025      Equity        Common Stock      Sales           Standard Common Stock transaction for Sales     1370.57    T. Brown      Flagged     3100
+     TXN-10024 08/12/2025      Assets                Cash        R&D                     Standard Cash transaction for R&D     3419.49  A. Johnson     Verified     1100
+     TXN-10025 07/17/2025     Expense           Utilities        R&D                Standard Utilities transaction for R&D     1248.69    J. Smith      Pending     5500
+     TXN-10026 04/08/2025     Revenue     Consulting Fees      Sales        Standard Consulting Fees transaction for Sales      796.05    T. Brown     Verified     4200
+     TXN-10027 09/09/2025     Revenue     Consulting Fees  Marketing    Standard Consulting Fees transaction for Marketing     2584.86    T. Brown     Verified     4200
+     TXN-10028 11/04/2025      Assets                Cash  Marketing               Standard Cash transaction for Marketing     4196.67    J. Smith     Verified     1100
+     TXN-10029 05/31/2025 Liabilities    Unearned Revenue        G&A         Standard Unearned Revenue transaction for G&A      916.03    T. Brown      Flagged     2300
+     TXN-10030 10/31/2025     Expense            Salaries Operations          Standard Salaries transaction for Operations     4419.05    J. Smith     Verified     5100
+     TXN-10031 05/27/2025     Revenue     Service Revenue      Sales        Standard Service Revenue transaction for Sales     3228.06    T. Brown     Verified     4300
+     TXN-10032 04/14/2025     Expense           Utilities      Sales              Standard Utilities transaction for Sales     3334.33    T. Brown     Verified     5500
+     TXN-10033 12/04/2025 Liabilities    Accrued Expenses        R&D         Standard Accrued Expenses transaction for R&D     3277.21    J. Smith     Verified     2200
+     TXN-10034 10/16/2025      Equity   Retained Earnings        G&A        Standard Retained Earnings transaction for G&A     1864.02 M. Williams     Verified     3200
+     TXN-10035 05/08/2025      Assets   Prepaid Insurance        G&A        Standard Prepaid Insurance transaction for G&A     2568.63  A. Johnson     Verified     1400
+     TXN-10036 06/07/2025      Equity        Common Stock        R&D             Standard Common Stock transaction for R&D     2200.25    J. Smith     Verified     3100
+     TXN-10037 11/13/2025     Revenue     Consulting Fees      Sales        Standard Consulting Fees transaction for Sales      265.84  A. Johnson      Flagged     4200
+     TXN-10038 01/06/2025     Revenue       Product Sales Operations     Standard Product Sales transaction for Operations     4645.18 M. Williams      Flagged     4100
+     TXN-10039 04/26/2025      Equity        Common Stock      Sales           Standard Common Stock transaction for Sales     1618.76    J. Smith     Verified     3100
+     TXN-10040 02/23/2025 Liabilities    Unearned Revenue  Marketing   Standard Unearned Revenue transaction for Marketing     3094.29  A. Johnson      Flagged     2300
+     TXN-10041 06/04/2025 Liabilities    Accrued Expenses  Marketing   Standard Accrued Expenses transaction for Marketing     3716.80 M. Williams     Verified     2200
+     TXN-10042 02/08/2025      Equity   Retained Earnings  Marketing  Standard Retained Earnings transaction for Marketing     4060.06    J. Smith      Pending     3200
+     TXN-10043 11/09/2025     Expense            Salaries        G&A                 Standard Salaries transaction for G&A     3267.32    T. Brown     Verified     5100
+     TXN-10044 05/23/2025     Expense        Rent Expense  Marketing       Standard Rent Expense transaction for Marketing     2220.45 M. Williams     Verified     5200
+     TXN-10045 03/04/2025      Equity   Retained Earnings  Marketing  Standard Retained Earnings transaction for Marketing     4309.00  A. Johnson     Verified     3200
+     TXN-10046 02/23/2025     Revenue       Product Sales      Sales          Standard Product Sales transaction for Sales     4147.95    T. Brown     Verified     4100
+     TXN-10047 04/13/2025     Expense            Salaries        G&A                 Standard Salaries transaction for G&A     2086.20    T. Brown     Verified     5100
+     TXN-10048 05/24/2025      Equity   Retained Earnings        G&A        Standard Retained Earnings transaction for G&A     3587.25    T. Brown     Verified     3200
+     TXN-10049 10/02/2025     Expense        Rent Expense  Marketing       Standard Rent Expense transaction for Marketing      175.49 M. Williams      Flagged     5200
+     TXN-10050 05/09/2025 Liabilities    Accrued Expenses      Sales       Standard Accrued Expenses transaction for Sales     2239.64  A. Johnson     Verified     2200
+     TXN-10051 03/30/2025      Equity        Common Stock      Sales           Standard Common Stock transaction for Sales     4776.58 M. Williams      Flagged     3100
+     TXN-10052 10/05/2025      Equity        Common Stock        R&D             Standard Common Stock transaction for R&D     1276.27    J. Smith     Verified     3100
+     TXN-10053 07/04/2025      Equity   Retained Earnings        G&A        Standard Retained Earnings transaction for G&A      277.71  A. Johnson     Verified     3200
+     TXN-10054 12/07/2025     Expense     Office Supplies Operations   Standard Office Supplies transaction for Operations     2022.60    J. Smith     Verified     5300
+     TXN-10055 06/29/2025 Liabilities    Accrued Expenses        R&D         Standard Accrued Expenses transaction for R&D     2540.52    J. Smith      Pending     2200
+     TXN-10056 01/16/2025 Liabilities    Accounts Payable        G&A         Standard Accounts Payable transaction for G&A     2949.59    T. Brown      Pending     2100
+     TXN-10057 06/12/2025     Expense     Office Supplies      Sales        Standard Office Supplies transaction for Sales     4065.46    T. Brown      Pending     5300
+     TXN-10058 03/06/2025      Assets   Prepaid Insurance  Marketing  Standard Prepaid Insurance transaction for Marketing     1073.09    T. Brown     Verified     1400
+     TXN-10059 10/29/2025 Liabilities    Accounts Payable        R&D         Standard Accounts Payable transaction for R&D     3110.36  A. Johnson     Verified     2100
+     TXN-10060 04/03/2025 Liabilities    Accrued Expenses  Marketing   Standard Accrued Expenses transaction for Marketing     1736.09 M. Williams     Verified     2200
+     TXN-10061 11/10/2025      Equity   Retained Earnings Operations Standard Retained Earnings transaction for Operations     4686.41    J. Smith     Verified     3200
+     TXN-10062 12/23/2025      Assets   Prepaid Insurance        R&D        Standard Prepaid Insurance transaction for R&D     4953.00 M. Williams     Verified     1400
+     TXN-10063 06/01/2025      Equity   Retained Earnings      Sales      Standard Retained Earnings transaction for Sales     3415.23 M. Williams     Verified     3200
+     TXN-10064 10/13/2025      Assets                Cash        G&A                     Standard Cash transaction for G&A     4140.96 M. Williams     Verified     1100
+     TXN-10065 06/26/2025     Expense      Travel Expense Operations    Standard Travel Expense transaction for Operations     4531.64  A. Johnson     Verified     5400
+     TXN-10066 02/21/2025     Revenue     Service Revenue Operations   Standard Service Revenue transaction for Operations      503.94    T. Brown     Verified     4300
+     TXN-10067 02/22/2025      Assets           Inventory Operations         Standard Inventory transaction for Operations     4658.10  A. Johnson      Flagged     1300
+     TXN-10068 05/13/2025     Revenue     Consulting Fees Operations   Standard Consulting Fees transaction for Operations     1787.03    T. Brown     Verified     4200
+     TXN-10069 09/10/2025      Equity   Retained Earnings  Marketing  Standard Retained Earnings transaction for Marketing     2013.43  A. Johnson      Pending     3200
+     TXN-10070 01/29/2025      Equity   Retained Earnings        R&D        Standard Retained Earnings transaction for R&D     2927.46  A. Johnson      Pending     3200
+     TXN-10071 05/25/2025      Assets                Cash        G&A                     Standard Cash transaction for G&A     1783.58 M. Williams     Verified     1100
+     TXN-10072 07/01/2025     Revenue     Service Revenue  Marketing    Standard Service Revenue transaction for Marketing     1684.75    J. Smith     Verified     4300
+     TXN-10073 08/30/2025     Expense        Rent Expense        G&A             Standard Rent Expense transaction for G&A      638.15    J. Smith     Verified     5200
+     TXN-10074 12/14/2025      Assets           Inventory        G&A                Standard Inventory transaction for G&A     1464.27  A. Johnson      Pending     1300
+     TXN-10075 02/27/2025     Expense            Salaries Operations          Standard Salaries transaction for Operations      263.64  A. Johnson      Pending     5100
+     TXN-10076 06/13/2025     Revenue     Consulting Fees        G&A          Standard Consulting Fees transaction for G&A      423.40    J. Smith     Verified     4200
+     TXN-10077 05/23/2025      Assets                Cash        R&D                     Standard Cash transaction for R&D     4510.73    T. Brown     Verified     1100
+     TXN-10078 12/24/2025     Expense      Travel Expense Operations    Standard Travel Expense transaction for Operations     1423.04  A. Johnson     Verified     5400
+     TXN-10079 07/05/2025     Expense        Rent Expense        G&A             Standard Rent Expense transaction for G&A      434.79    T. Brown      Flagged     5200
+     TXN-10080 05/25/2025      Assets                Cash Operations              Standard Cash transaction for Operations     4078.29    J. Smith     Verified     1100
+     TXN-10081 02/04/2025      Equity   Retained Earnings  Marketing  Standard Retained Earnings transaction for Marketing     2112.36    J. Smith     Verified     3200
+     TXN-10082 11/08/2025 Liabilities    Unearned Revenue Operations  Standard Unearned Revenue transaction for Operations      865.93  A. Johnson     Verified     2300
+     TXN-10083 08/12/2025      Assets           Inventory Operations         Standard Inventory transaction for Operations     3760.41 M. Williams     Verified     1300
+     TXN-10084 06/26/2025      Equity        Common Stock  Marketing       Standard Common Stock transaction for Marketing      232.27    J. Smith     Verified     3100
+     TXN-10085 11/07/2025     Expense     Office Supplies Operations   Standard Office Supplies transaction for Operations     4998.60    J. Smith      Flagged     5300
+     TXN-10086 02/22/2025      Equity   Retained Earnings  Marketing  Standard Retained Earnings transaction for Marketing     1920.36    J. Smith     Verified     3200
+     TXN-10087 01/01/2025     Revenue       Product Sales Operations     Standard Product Sales transaction for Operations     1075.78    T. Brown      Pending     4100
+     TXN-10088 04/05/2025 Liabilities    Accrued Expenses  Marketing   Standard Accrued Expenses transaction for Marketing     2407.24  A. Johnson      Pending     2200
+     TXN-10089 02/23/2025     Expense            Salaries        R&D                 Standard Salaries transaction for R&D     2047.24 M. Williams     Verified     5100
+     TXN-10090 12/07/2025 Liabilities    Unearned Revenue        R&D         Standard Unearned Revenue transaction for R&D     4520.60  A. Johnson      Flagged     2300
+     TXN-10091 11/02/2025 Liabilities    Accrued Expenses        R&D         Standard Accrued Expenses transaction for R&D      500.46    J. Smith     Verified     2200
+     TXN-10092 12/01/2025     Expense        Rent Expense        R&D             Standard Rent Expense transaction for R&D     3503.33  A. Johnson     Verified     5200
+     TXN-10093 11/26/2025      Assets   Prepaid Insurance        G&A        Standard Prepaid Insurance transaction for G&A     2322.72    J. Smith      Flagged     1400
+     TXN-10094 07/24/2025     Revenue     Consulting Fees        R&D          Standard Consulting Fees transaction for R&D      425.52 M. Williams     Verified     4200
+     TXN-10095 01/08/2025     Expense      Travel Expense      Sales         Standard Travel Expense transaction for Sales     4489.10    J. Smith     Verified     5400
+     TXN-10096 03/02/2025 Liabilities    Unearned Revenue        R&D         Standard Unearned Revenue transaction for R&D     4117.86  A. Johnson     Verified     2300
+     TXN-10097 01/22/2025      Equity   Retained Earnings      Sales      Standard Retained Earnings transaction for Sales     2695.40  A. Johnson     Verified     3200
+     TXN-10098 03/19/2025 Liabilities    Accounts Payable        R&D         Standard Accounts Payable transaction for R&D      244.60    J. Smith     Verified     2100
+     TXN-10099 04/17/2025      Equity        Common Stock  Marketing       Standard Common Stock transaction for Marketing     4348.09 M. Williams     Verified     3100
+     TXN-10100 06/29/2025 Liabilities    Unearned Revenue  Marketing   Standard Unearned Revenue transaction for Marketing     3749.98    T. Brown     Verified     2300
+     TXN-10101 01/03/2025     Revenue     Consulting Fees        G&A          Standard Consulting Fees transaction for G&A      580.50 M. Williams     Verified     4200
+     TXN-10102 01/15/2025      Assets           Inventory Operations         Standard Inventory transaction for Operations      952.31    J. Smith     Verified     1300
+     TXN-10103 05/06/2025     Expense     Office Supplies      Sales        Standard Office Supplies transaction for Sales     1747.49  A. Johnson     Verified     5300
+     TXN-10104 08/21/2025      Equity   Retained Earnings        G&A        Standard Retained Earnings transaction for G&A     2708.68    T. Brown     Verified     3200
+     TXN-10105 03/24/2025 Liabilities    Accounts Payable Operations  Standard Accounts Payable transaction for Operations     1847.26  A. Johnson     Verified     2100
+     TXN-10106 08/17/2025      Assets                Cash Operations              Standard Cash transaction for Operations      553.82 M. Williams     Verified     1100
+     TXN-10107 01/04/2025     Revenue     Service Revenue      Sales        Standard Service Revenue transaction for Sales      447.16    T. Brown     Verified     4300
+     TXN-10108 02/05/2025 Liabilities    Unearned Revenue        G&A         Standard Unearned Revenue transaction for G&A       76.24  A. Johnson      Flagged     2300
+     TXN-10109 03/03/2025      Assets Accounts Receivable        R&D      Standard Accounts Receivable transaction for R&D     2879.48    T. Brown     Verified     1200
+     TXN-10110 04/28/2025     Expense           Utilities        G&A                Standard Utilities transaction for G&A     2562.67 M. Williams     Verified     5500
+     TXN-10111 03/31/2025      Equity   Retained Earnings        R&D        Standard Retained Earnings transaction for R&D     4663.47  A. Johnson     Verified     3200
+     TXN-10112 09/18/2025 Liabilities    Accrued Expenses Operations  Standard Accrued Expenses transaction for Operations     3438.63 M. Williams     Verified     2200
+     TXN-10113 09/22/2025     Revenue     Consulting Fees        R&D          Standard Consulting Fees transaction for R&D     1776.90  A. Johnson      Pending     4200
+     TXN-10114 11/30/2025      Equity   Retained Earnings        R&D        Standard Retained Earnings transaction for R&D     4694.79    T. Brown     Verified     3200
+     TXN-10115 03/01/2025      Equity   Retained Earnings        R&D        Standard Retained Earnings transaction for R&D     3986.57  A. Johnson     Verified     3200
+     TXN-10116 06/14/2025      Equity        Common Stock        R&D             Standard Common Stock transaction for R&D     3187.10    J. Smith      Pending     3100
+     TXN-10117 03/30/2025 Liabilities    Unearned Revenue        R&D         Standard Unearned Revenue transaction for R&D     3139.30 M. Williams     Verified     2300
+     TXN-10118 06/02/2025      Assets                Cash  Marketing               Standard Cash transaction for Marketing     2740.59 M. Williams      Pending     1100
+     TXN-10119 07/17/2025     Revenue     Consulting Fees        R&D          Standard Consulting Fees transaction for R&D     1707.78 M. Williams     Verified     4200
+     TXN-10120 06/06/2025      Assets   Prepaid Insurance        R&D        Standard Prepaid Insurance transaction for R&D     3953.56    J. Smith     Verified     1400
+     TXN-10121 10/16/2025     Expense        Rent Expense  Marketing       Standard Rent Expense transaction for Marketing     2495.21  A. Johnson     Verified     5200
+     TXN-10122 06/08/2025     Expense            Salaries        G&A                 Standard Salaries transaction for G&A     2016.57    J. Smith     Verified     5100
+     TXN-10123 11/28/2025      Equity   Retained Earnings        R&D        Standard Retained Earnings transaction for R&D     3223.68    T. Brown     Verified     3200
+     TXN-10124 10/26/2025     Revenue       Product Sales        G&A            Standard Product Sales transaction for G&A      948.91  A. Johnson      Pending     4100
+     TXN-10125 10/30/2025 Liabilities    Accrued Expenses        R&D         Standard Accrued Expenses transaction for R&D      809.09  A. Johnson     Verified     2200
+     TXN-10126 04/21/2025     Expense           Utilities        G&A                Standard Utilities transaction for G&A      555.95    J. Smith      Pending     5500
+     TXN-10127 11/24/2025 Liabilities    Accounts Payable        G&A         Standard Accounts Payable transaction for G&A     1903.46 M. Williams     Verified     2100
+     TXN-10128 10/23/2025      Assets Accounts Receivable        R&D      Standard Accounts Receivable transaction for R&D     2281.65    J. Smith     Verified     1200
+     TXN-10129 04/20/2025     Expense     Office Supplies      Sales        Standard Office Supplies transaction for Sales     4355.99    T. Brown     Verified     5300
+     TXN-10130 11/05/2025      Assets Accounts Receivable        G&A      Standard Accounts Receivable transaction for G&A     3949.56 M. Williams     Verified     1200
+     TXN-10131 09/01/2025      Assets Accounts Receivable        R&D      Standard Accounts Receivable transaction for R&D     4618.65 M. Williams     Verified     1200
+     TXN-10132 05/08/2025     Revenue     Consulting Fees        G&A          Standard Consulting Fees transaction for G&A     4568.11    T. Brown     Verified     4200
+     TXN-10133 12/10/2025      Assets                Cash Operations              Standard Cash transaction for Operations     2923.91    T. Brown     Verified     1100
+     TXN-10134 02/18/2025      Assets   Prepaid Insurance      Sales      Standard Prepaid Insurance transaction for Sales      785.88    T. Brown     Verified     1400
+     TXN-10135 07/08/2025      Assets           Inventory      Sales              Standard Inventory transaction for Sales     1584.19 M. Williams     Verified     1300
+     TXN-10136 07/30/2025      Equity        Common Stock Operations      Standard Common Stock transaction for Operations     1919.74 M. Williams      Pending     3100
+     TXN-10137 09/14/2025     Revenue     Consulting Fees  Marketing    Standard Consulting Fees transaction for Marketing     2645.73  A. Johnson     Verified     4200
+     TXN-10138 11/15/2025     Expense     Office Supplies Operations   Standard Office Supplies transaction for Operations      423.74  A. Johnson     Verified     5300
+     TXN-10139 06/11/2025     Expense     Office Supplies        G&A          Standard Office Supplies transaction for G&A     4206.95    T. Brown      Pending     5300
+     TXN-10140 11/09/2025     Revenue     Consulting Fees        R&D          Standard Consulting Fees transaction for R&D     2552.26    J. Smith     Verified     4200
+     TXN-10141 08/17/2025     Revenue     Consulting Fees      Sales        Standard Consulting Fees transaction for Sales     2805.77 M. Williams     Verified     4200
+     TXN-10142 03/29/2025     Revenue       Product Sales Operations     Standard Product Sales transaction for Operations     2061.64  A. Johnson     Verified     4100
+     TXN-10143 11/26/2025      Assets           Inventory Operations         Standard Inventory transaction for Operations      181.33    T. Brown     Verified     1300
+     TXN-10144 07/07/2025 Liabilities    Accrued Expenses      Sales       Standard Accrued Expenses transaction for Sales     4096.35  A. Johnson     Verified     2200
+     TXN-10145 07/14/2025     Expense      Travel Expense Operations    Standard Travel Expense transaction for Operations     1758.70    J. Smith     Verified     5400
+     TXN-10146 12/21/2025     Expense        Rent Expense        G&A             Standard Rent Expense transaction for G&A      743.56    T. Brown      Pending     5200
+     TXN-10147 08/03/2025      Assets Accounts Receivable        R&D      Standard Accounts Receivable transaction for R&D     2586.67  A. Johnson     Verified     1200
+     TXN-10148 10/08/2025      Assets Accounts Receivable        R&D      Standard Accounts Receivable transaction for R&D     2137.43    J. Smith     Verified     1200
+     TXN-10149 03/16/2025 Liabilities    Accounts Payable  Marketing   Standard Accounts Payable transaction for Marketing     2903.76    J. Smith     Verified     2100
+     TXN-10150 06/02/2025 Liabilities    Unearned Revenue Operations  Standard Unearned Revenue transaction for Operations      104.43    J. Smith     Verified     2300
+     TXN-10151 08/07/2025 Liabilities    Accounts Payable      Sales       Standard Accounts Payable transaction for Sales     2496.66    J. Smith     Verified     2100
+     TXN-10152 07/09/2025 Liabilities    Accrued Expenses  Marketing   Standard Accrued Expenses transaction for Marketing      873.10 M. Williams     Verified     2200
+     TXN-10153 10/19/2025     Revenue     Service Revenue Operations   Standard Service Revenue transaction for Operations     1977.01    T. Brown     Verified     4300
+     TXN-10154 04/23/2025     Revenue     Consulting Fees        R&D          Standard Consulting Fees transaction for R&D     4749.07  A. Johnson      Flagged     4200
+     TXN-10155 11/08/2025      Assets Accounts Receivable        G&A      Standard Accounts Receivable transaction for G&A     2722.22    T. Brown     Verified     1200
+     TXN-10156 07/20/2025 Liabilities    Accrued Expenses Operations  Standard Accrued Expenses transaction for Operations     1754.70    J. Smith     Verified     2200
+     TXN-10157 03/02/2025     Revenue     Service Revenue      Sales        Standard Service Revenue transaction for Sales     1269.69    J. Smith      Pending     4300
+     TXN-10158 06/21/2025     Revenue     Service Revenue  Marketing    Standard Service Revenue transaction for Marketing      560.31 M. Williams     Verified     4300
+     TXN-10159 11/01/2025      Equity        Common Stock  Marketing       Standard Common Stock transaction for Marketing     3468.27    T. Brown     Verified     3100
+     TXN-10160 03/21/2025     Revenue     Consulting Fees Operations   Standard Consulting Fees transaction for Operations     3807.23    T. Brown     Verified     4200
+     TXN-10161 07/19/2025      Assets Accounts Receivable      Sales    Standard Accounts Receivable transaction for Sales     3250.99    J. Smith     Verified     1200
+     TXN-10162 01/26/2025 Liabilities    Unearned Revenue      Sales       Standard Unearned Revenue transaction for Sales      943.85  A. Johnson     Verified     2300
+     TXN-10163 09/27/2025      Equity        Common Stock      Sales           Standard Common Stock transaction for Sales     1003.37 M. Williams     Verified     3100
+     TXN-10164 03/23/2025     Expense           Utilities  Marketing          Standard Utilities transaction for Marketing     2636.05  A. Johnson     Verified     5500
+     TXN-10165 04/18/2025     Expense            Salaries  Marketing           Standard Salaries transaction for Marketing     4430.74  A. Johnson     Verified     5100
+     TXN-10166 02/08/2025      Assets   Prepaid Insurance Operations Standard Prepaid Insurance transaction for Operations     3325.19    J. Smith     Verified     1400
+     TXN-10167 04/18/2025 Liabilities    Unearned Revenue        R&D         Standard Unearned Revenue transaction for R&D     4356.99 M. Williams     Verified     2300
+     TXN-10168 02/08/2025     Expense            Salaries      Sales               Standard Salaries transaction for Sales     2039.56    J. Smith     Verified     5100
+     TXN-10169 08/24/2025      Assets Accounts Receivable      Sales    Standard Accounts Receivable transaction for Sales     1715.03    J. Smith     Verified     1200
+     TXN-10170 01/03/2025      Equity   Retained Earnings  Marketing  Standard Retained Earnings transaction for Marketing     1516.73    J. Smith     Verified     3200
+     TXN-10171 07/12/2025      Equity   Retained Earnings      Sales      Standard Retained Earnings transaction for Sales      591.86    T. Brown     Verified     3200
+     TXN-10172 03/02/2025      Equity        Common Stock        G&A             Standard Common Stock transaction for G&A     2117.02  A. Johnson      Pending     3100
+     TXN-10173 03/03/2025      Equity   Retained Earnings      Sales      Standard Retained Earnings transaction for Sales     3729.60    T. Brown     Verified     3200
+     TXN-10174 12/15/2025      Equity        Common Stock Operations      Standard Common Stock transaction for Operations      645.68    J. Smith     Verified     3100
+     TXN-10175 08/29/2025 Liabilities    Unearned Revenue Operations  Standard Unearned Revenue transaction for Operations      336.32    J. Smith      Flagged     2300
+     TXN-10176 08/29/2025      Equity        Common Stock  Marketing       Standard Common Stock transaction for Marketing     2600.48    J. Smith     Verified     3100
+     TXN-10177 06/09/2025     Revenue     Service Revenue Operations   Standard Service Revenue transaction for Operations     1157.90    J. Smith     Verified     4300
+     TXN-10178 12/23/2025 Liabilities    Unearned Revenue      Sales       Standard Unearned Revenue transaction for Sales     1986.29    J. Smith     Verified     2300
+     TXN-10179 08/14/2025     Expense        Rent Expense      Sales           Standard Rent Expense transaction for Sales     1678.80 M. Williams      Pending     5200
+     TXN-10180 08/14/2025     Expense           Utilities Operations         Standard Utilities transaction for Operations      291.48    J. Smith     Verified     5500
+     TXN-10181 10/11/2025      Equity        Common Stock      Sales           Standard Common Stock transaction for Sales      354.51  A. Johnson      Pending     3100
+     TXN-10182 04/25/2025 Liabilities    Unearned Revenue  Marketing   Standard Unearned Revenue transaction for Marketing     2741.71    J. Smith      Pending     2300
+     TXN-10183 05/27/2025     Expense     Office Supplies        R&D          Standard Office Supplies transaction for R&D     4343.11 M. Williams     Verified     5300
+     TXN-10184 12/11/2025      Equity   Retained Earnings        G&A        Standard Retained Earnings transaction for G&A     3112.13 M. Williams     Verified     3200
+     TXN-10185 11/10/2025      Assets           Inventory  Marketing          Standard Inventory transaction for Marketing      687.91  A. Johnson     Verified     1300
+     TXN-10186 03/23/2025     Expense        Rent Expense Operations      Standard Rent Expense transaction for Operations     2561.97    T. Brown     Verified     5200
+     TXN-10187 08/21/2025      Assets   Prepaid Insurance  Marketing  Standard Prepaid Insurance transaction for Marketing     3188.33 M. Williams     Verified     1400
+     TXN-10188 11/22/2025     Revenue     Service Revenue  Marketing    Standard Service Revenue transaction for Marketing     2189.59    T. Brown      Pending     4300
+     TXN-10189 12/01/2025      Equity        Common Stock        G&A             Standard Common Stock transaction for G&A      910.08    T. Brown     Verified     3100
+     TXN-10190 01/12/2025      Assets Accounts Receivable      Sales    Standard Accounts Receivable transaction for Sales      336.71  A. Johnson     Verified     1200
+     TXN-10191 09/27/2025      Equity   Retained Earnings        G&A        Standard Retained Earnings transaction for G&A     3255.49    T. Brown     Verified     3200
+     TXN-10192 02/05/2025     Expense      Travel Expense  Marketing     Standard Travel Expense transaction for Marketing     4331.67    J. Smith     Verified     5400
+     TXN-10193 03/21/2025     Revenue       Product Sales        R&D            Standard Product Sales transaction for R&D     4839.22  A. Johnson      Flagged     4100
+     TXN-10194 07/22/2025      Assets           Inventory        G&A                Standard Inventory transaction for G&A     1223.45    T. Brown     Verified     1300
+     TXN-10195 11/04/2025 Liabilities    Accounts Payable Operations  Standard Accounts Payable transaction for Operations     3345.67 M. Williams     Verified     2100
+     TXN-10196 05/18/2025      Equity        Common Stock        G&A             Standard Common Stock transaction for G&A     2219.00  A. Johnson     Verified     3100
+     TXN-10197 09/01/2025     Expense            Salaries  Marketing           Standard Salaries transaction for Marketing     4450.00    J. Smith     Verified     5100
+     TXN-10198 12/12/2025      Assets                Cash        R&D                     Standard Cash transaction for R&D     3345.90    T. Brown     Verified     1100
+     TXN-10199 06/30/2025     Revenue     Service Revenue      Sales        Standard Service Revenue transaction for Sales     1123.45 M. Williams     Verified     4300
+--- ROWS 201 TO 400 OF 500 ---
+Transaction_ID       Date    Category        Account_Name Department                                             Description  Amount_USD Approved_By Audit_Status  GL_Code
+     TXN-10200 01/15/2025 Liabilities    Accrued Expenses        G&A           Standard Accrued Expenses transaction for G&A      987.65  A. Johnson     Verified     2200
+     TXN-10201 02/14/2025     Expense           Utilities Operations           Standard Utilities transaction for Operations      456.78    J. Smith     Verified     5500
+     TXN-10202 03/22/2025      Assets Accounts Receivable  Marketing  Standard Accounts Receivable transaction for Marketing     2234.56    T. Brown     Verified     1200
+     TXN-10203 04/18/2025     Revenue     Consulting Fees        R&D            Standard Consulting Fees transaction for R&D     3345.67 M. Williams     Verified     4200
+     TXN-10204 05/25/2025     Expense     Office Supplies      Sales          Standard Office Supplies transaction for Sales      112.34  A. Johnson     Verified     5300
+     TXN-10205 06/08/2025      Equity   Retained Earnings        G&A          Standard Retained Earnings transaction for G&A     4456.78    J. Smith     Verified     3200
+     TXN-10206 07/04/2025 Liabilities    Unearned Revenue  Marketing     Standard Unearned Revenue transaction for Marketing      223.45    T. Brown     Verified     2300
+     TXN-10207 08/30/2025      Assets           Inventory        R&D                  Standard Inventory transaction for R&D     1123.45 M. Williams     Verified     1300
+     TXN-10208 09/27/2025     Expense        Rent Expense Operations        Standard Rent Expense transaction for Operations     2234.56  A. Johnson     Verified     5200
+     TXN-10209 10/16/2025     Revenue       Product Sales      Sales            Standard Product Sales transaction for Sales     3345.67    J. Smith     Verified     4100
+     TXN-10210 11/05/2025      Equity        Common Stock  Marketing         Standard Common Stock transaction for Marketing     4456.78    T. Brown     Verified     3100
+     TXN-10211 12/21/2025 Liabilities    Accounts Payable        G&A           Standard Accounts Payable transaction for G&A      112.34 M. Williams     Verified     2100
+     TXN-10212 01/10/2025     Expense            Salaries Operations            Standard Salaries transaction for Operations     4456.78  A. Johnson     Verified     5100
+     TXN-10213 02/14/2025      Assets                Cash      Sales                     Standard Cash transaction for Sales      223.45    J. Smith     Verified     1100
+     TXN-10214 03/22/2025     Revenue     Service Revenue  Marketing      Standard Service Revenue transaction for Marketing     1123.45    T. Brown     Verified     4300
+     TXN-10215 04/18/2025      Equity   Retained Earnings        R&D          Standard Retained Earnings transaction for R&D     2234.56 M. Williams     Verified     3200
+     TXN-10216 05/25/2025 Liabilities    Accrued Expenses Operations    Standard Accrued Expenses transaction for Operations     3345.67  A. Johnson     Verified     2200
+     TXN-10217 06/08/2025     Expense           Utilities      Sales                Standard Utilities transaction for Sales      112.34    J. Smith     Verified     5500
+     TXN-10218 07/04/2025      Assets Accounts Receivable        G&A        Standard Accounts Receivable transaction for G&A     4456.78    T. Brown     Verified     1200
+     TXN-10219 08/30/2025     Revenue     Consulting Fees  Marketing      Standard Consulting Fees transaction for Marketing      223.45 M. Williams     Verified     4200
+     TXN-10220 09/27/2025      Equity        Common Stock        R&D               Standard Common Stock transaction for R&D     1123.45  A. Johnson     Verified     3100
+     TXN-10221 10/16/2025 Liabilities    Unearned Revenue Operations    Standard Unearned Revenue transaction for Operations     2234.56    J. Smith     Verified     2300
+     TXN-10222 11/05/2025     Expense     Office Supplies      Sales          Standard Office Supplies transaction for Sales     3345.67    T. Brown     Verified     5300
+     TXN-10223 12/21/2025      Assets           Inventory  Marketing            Standard Inventory transaction for Marketing     4456.78 M. Williams     Verified     1300
+     TXN-10224 01/10/2025     Revenue       Product Sales        G&A              Standard Product Sales transaction for G&A      112.34  A. Johnson     Verified     4100
+     TXN-10225 02/14/2025      Equity   Retained Earnings Operations   Standard Retained Earnings transaction for Operations     4456.78    J. Smith     Verified     3200
+     TXN-10226 03/22/2025 Liabilities    Accounts Payable      Sales         Standard Accounts Payable transaction for Sales      223.45    T. Brown     Verified     2100
+     TXN-10227 04/18/2025     Expense            Salaries  Marketing             Standard Salaries transaction for Marketing     1123.45 M. Williams     Verified     5100
+     TXN-10228 05/25/2025      Assets                Cash        R&D                       Standard Cash transaction for R&D     2234.56  A. Johnson     Verified     1100
+     TXN-10229 06/08/2025     Revenue     Service Revenue Operations     Standard Service Revenue transaction for Operations     3345.67    J. Smith     Verified     4300
+     TXN-10230 07/04/2025      Equity        Common Stock      Sales             Standard Common Stock transaction for Sales     4456.78    T. Brown     Verified     3100
+     TXN-10231 08/30/2025 Liabilities    Accrued Expenses  Marketing     Standard Accrued Expenses transaction for Marketing      112.34 M. Williams     Verified     2200
+     TXN-10232 09/27/2025     Expense           Utilities        G&A                  Standard Utilities transaction for G&A     4456.78  A. Johnson     Verified     5500
+     TXN-10233 10/16/2025      Assets Accounts Receivable Operations Standard Accounts Receivable transaction for Operations      223.45    J. Smith     Verified     1200
+     TXN-10234 11/05/2025     Revenue     Consulting Fees      Sales          Standard Consulting Fees transaction for Sales     1123.45    T. Brown     Verified     4200
+     TXN-10235 12/21/2025      Equity   Retained Earnings  Marketing    Standard Retained Earnings transaction for Marketing     2234.56 M. Williams     Verified     3200
+     TXN-10236 01/10/2025 Liabilities    Unearned Revenue        R&D           Standard Unearned Revenue transaction for R&D     3345.67  A. Johnson     Verified     2300
+     TXN-10237 02/14/2025     Expense     Office Supplies Operations     Standard Office Supplies transaction for Operations     4456.78    J. Smith     Verified     5300
+     TXN-10238 03/22/2025      Assets           Inventory      Sales                Standard Inventory transaction for Sales      112.34    T. Brown     Verified     1300
+     TXN-10239 04/18/2025     Revenue       Product Sales  Marketing        Standard Product Sales transaction for Marketing     4456.78 M. Williams     Verified     4100
+     TXN-10240 05/25/2025      Equity        Common Stock        G&A               Standard Common Stock transaction for G&A      223.45  A. Johnson     Verified     3100
+     TXN-10241 06/08/2025 Liabilities    Accounts Payable Operations    Standard Accounts Payable transaction for Operations     1123.45    J. Smith     Verified     2100
+     TXN-10242 07/04/2025     Expense            Salaries      Sales                 Standard Salaries transaction for Sales     2234.56    T. Brown     Verified     5100
+     TXN-10243 08/30/2025      Assets                Cash  Marketing                 Standard Cash transaction for Marketing     3345.67 M. Williams     Verified     1100
+     TXN-10244 09/27/2025     Revenue     Service Revenue        G&A            Standard Service Revenue transaction for G&A     4456.78  A. Johnson     Verified     4300
+     TXN-10245 10/16/2025      Equity   Retained Earnings Operations   Standard Retained Earnings transaction for Operations      112.34    J. Smith     Verified     3200
+     TXN-10246 11/05/2025 Liabilities    Accrued Expenses      Sales         Standard Accrued Expenses transaction for Sales     4456.78    T. Brown     Verified     2200
+     TXN-10247 12/21/2025     Expense           Utilities  Marketing            Standard Utilities transaction for Marketing      223.45 M. Williams     Verified     5500
+     TXN-10248 01/10/2025      Assets Accounts Receivable        G&A        Standard Accounts Receivable transaction for G&A     1123.45  A. Johnson     Verified     1200
+     TXN-10249 02/14/2025     Revenue     Consulting Fees Operations     Standard Consulting Fees transaction for Operations     2234.56    J. Smith     Verified     4200
+     TXN-10250 03/22/2025      Equity        Common Stock      Sales             Standard Common Stock transaction for Sales     3345.67    T. Brown     Verified     3100
+     TXN-10251 04/18/2025 Liabilities    Unearned Revenue  Marketing     Standard Unearned Revenue transaction for Marketing     4456.78 M. Williams     Verified     2300
+     TXN-10252 05/25/2025     Expense     Office Supplies        G&A            Standard Office Supplies transaction for G&A      112.34  A. Johnson     Verified     5300
+     TXN-10253 06/08/2025      Assets           Inventory Operations           Standard Inventory transaction for Operations     1123.45    J. Smith     Verified     1300
+     TXN-10254 07/04/2025     Revenue       Product Sales      Sales            Standard Product Sales transaction for Sales     2234.56    T. Brown     Verified     4100
+     TXN-10255 08/30/2025      Equity   Retained Earnings  Marketing    Standard Retained Earnings transaction for Marketing     3345.67 M. Williams     Verified     3200
+     TXN-10256 09/27/2025 Liabilities    Accounts Payable        G&A           Standard Accounts Payable transaction for G&A     4456.78  A. Johnson     Verified     2100
+     TXN-10257 10/16/2025     Expense            Salaries Operations            Standard Salaries transaction for Operations      112.34    J. Smith     Verified     5100
+     TXN-10258 11/05/2025      Assets                Cash      Sales                     Standard Cash transaction for Sales     4456.78    T. Brown     Verified     1100
+     TXN-10259 12/21/2025     Revenue     Service Revenue  Marketing      Standard Service Revenue transaction for Marketing      223.45 M. Williams     Verified     4300
+     TXN-10260 01/10/2025      Equity        Common Stock        G&A               Standard Common Stock transaction for G&A     1123.45  A. Johnson     Verified     3100
+     TXN-10261 02/14/2025 Liabilities    Accrued Expenses Operations    Standard Accrued Expenses transaction for Operations     2234.56    J. Smith     Verified     2200
+     TXN-10262 03/22/2025     Expense           Utilities      Sales                Standard Utilities transaction for Sales     3345.67    T. Brown     Verified     5500
+     TXN-10263 04/18/2025      Assets Accounts Receivable  Marketing  Standard Accounts Receivable transaction for Marketing     4456.78 M. Williams     Verified     1200
+     TXN-10264 05/25/2025     Revenue     Consulting Fees        G&A            Standard Consulting Fees transaction for G&A      112.34  A. Johnson     Verified     4200
+     TXN-10265 06/08/2025      Equity   Retained Earnings Operations   Standard Retained Earnings transaction for Operations     1123.45    J. Smith     Verified     3200
+     TXN-10266 07/04/2025 Liabilities    Unearned Revenue      Sales         Standard Unearned Revenue transaction for Sales     2234.56    T. Brown     Verified     2300
+     TXN-10267 08/30/2025     Expense     Office Supplies  Marketing      Standard Office Supplies transaction for Marketing     3345.67 M. Williams     Verified     5300
+     TXN-10268 09/27/2025      Assets           Inventory        G&A                  Standard Inventory transaction for G&A     4456.78  A. Johnson     Verified     1300
+     TXN-10269 10/16/2025     Revenue       Product Sales Operations       Standard Product Sales transaction for Operations      112.34    J. Smith     Verified     4100
+     TXN-10270 11/05/2025      Equity        Common Stock      Sales             Standard Common Stock transaction for Sales     4456.78    T. Brown     Verified     3100
+     TXN-10271 12/21/2025 Liabilities    Accounts Payable  Marketing     Standard Accounts Payable transaction for Marketing      223.45 M. Williams     Verified     2100
+     TXN-10272 01/10/2025     Expense            Salaries        G&A                   Standard Salaries transaction for G&A     1123.45  A. Johnson     Verified     5100
+     TXN-10273 02/14/2025      Assets                Cash Operations                Standard Cash transaction for Operations     2234.56    J. Smith     Verified     1100
+     TXN-10274 03/22/2025     Revenue     Service Revenue      Sales          Standard Service Revenue transaction for Sales     3345.67    T. Brown     Verified     4300
+     TXN-10275 04/18/2025      Equity   Retained Earnings  Marketing    Standard Retained Earnings transaction for Marketing     4456.78 M. Williams     Verified     3200
+     TXN-10276 05/25/2025 Liabilities    Accrued Expenses        G&A           Standard Accrued Expenses transaction for G&A      112.34  A. Johnson     Verified     2200
+     TXN-10277 06/08/2025     Expense           Utilities Operations           Standard Utilities transaction for Operations     1123.45    J. Smith     Verified     5500
+     TXN-10278 07/04/2025      Assets Accounts Receivable      Sales      Standard Accounts Receivable transaction for Sales     2234.56    T. Brown     Verified     1200
+     TXN-10279 08/30/2025     Revenue     Consulting Fees  Marketing      Standard Consulting Fees transaction for Marketing     3345.67 M. Williams     Verified     4200
+     TXN-10280 09/27/2025      Equity        Common Stock        G&A               Standard Common Stock transaction for G&A     4456.78  A. Johnson     Verified     3100
+     TXN-10281 10/16/2025 Liabilities    Unearned Revenue Operations    Standard Unearned Revenue transaction for Operations      112.34    J. Smith     Verified     2300
+     TXN-10282 11/05/2025     Expense     Office Supplies      Sales          Standard Office Supplies transaction for Sales     4456.78    T. Brown     Verified     5300
+     TXN-10283 12/21/2025      Assets           Inventory  Marketing            Standard Inventory transaction for Marketing      223.45 M. Williams     Verified     1300
+     TXN-10284 01/10/2025     Revenue       Product Sales        G&A              Standard Product Sales transaction for G&A     1123.45  A. Johnson     Verified     4100
+     TXN-10285 02/14/2025      Equity   Retained Earnings Operations   Standard Retained Earnings transaction for Operations     2234.56    J. Smith     Verified     3200
+     TXN-10286 03/22/2025 Liabilities    Accounts Payable      Sales         Standard Accounts Payable transaction for Sales     3345.67    T. Brown     Verified     2100
+     TXN-10287 04/18/2025     Expense            Salaries  Marketing             Standard Salaries transaction for Marketing     4456.78 M. Williams     Verified     5100
+     TXN-10288 05/25/2025      Assets                Cash        G&A                       Standard Cash transaction for G&A      112.34  A. Johnson     Verified     1100
+     TXN-10289 06/08/2025     Revenue     Service Revenue Operations     Standard Service Revenue transaction for Operations     1123.45    J. Smith     Verified     4300
+     TXN-10290 07/04/2025      Equity        Common Stock      Sales             Standard Common Stock transaction for Sales     2234.56    T. Brown     Verified     3100
+     TXN-10291 08/30/2025 Liabilities    Accrued Expenses  Marketing     Standard Accrued Expenses transaction for Marketing     3345.67 M. Williams     Verified     2200
+     TXN-10292 09/27/2025     Expense           Utilities        G&A                  Standard Utilities transaction for G&A     4456.78  A. Johnson     Verified     5500
+     TXN-10293 10/16/2025      Assets Accounts Receivable Operations Standard Accounts Receivable transaction for Operations      112.34    J. Smith     Verified     1200
+     TXN-10294 11/05/2025     Revenue     Consulting Fees      Sales          Standard Consulting Fees transaction for Sales     4456.78    T. Brown     Verified     4200
+     TXN-10295 12/21/2025      Equity   Retained Earnings  Marketing    Standard Retained Earnings transaction for Marketing      223.45 M. Williams     Verified     3200
+     TXN-10296 01/10/2025 Liabilities    Unearned Revenue        G&A           Standard Unearned Revenue transaction for G&A     1123.45  A. Johnson     Verified     2300
+     TXN-10297 02/14/2025     Expense     Office Supplies Operations     Standard Office Supplies transaction for Operations     2234.56    J. Smith     Verified     5300
+     TXN-10298 03/22/2025      Assets           Inventory      Sales                Standard Inventory transaction for Sales     3345.67    T. Brown     Verified     1300
+     TXN-10299 04/18/2025     Revenue       Product Sales  Marketing        Standard Product Sales transaction for Marketing     4456.78 M. Williams     Verified     4100
+     TXN-10300 05/25/2025      Equity        Common Stock        G&A               Standard Common Stock transaction for G&A      112.34  A. Johnson     Verified     3100
+     TXN-10301 06/08/2025 Liabilities    Accounts Payable Operations    Standard Accounts Payable transaction for Operations     1123.45    J. Smith     Verified     2100
+     TXN-10302 07/04/2025     Expense            Salaries      Sales                 Standard Salaries transaction for Sales     2234.56    T. Brown     Verified     5100
+     TXN-10303 08/30/2025      Assets                Cash  Marketing                 Standard Cash transaction for Marketing     3345.67 M. Williams     Verified     1100
+     TXN-10304 09/27/2025     Revenue     Service Revenue        G&A            Standard Service Revenue transaction for G&A     4456.78  A. Johnson     Verified     4300
+     TXN-10305 10/16/2025      Equity   Retained Earnings Operations   Standard Retained Earnings transaction for Operations      112.34    J. Smith     Verified     3200
+     TXN-10306 11/05/2025 Liabilities    Accrued Expenses      Sales         Standard Accrued Expenses transaction for Sales     4456.78    T. Brown     Verified     2200
+     TXN-10307 12/21/2025     Expense           Utilities  Marketing            Standard Utilities transaction for Marketing      223.45 M. Williams     Verified     5500
+     TXN-10308 01/10/2025      Assets Accounts Receivable        G&A        Standard Accounts Receivable transaction for G&A     1123.45  A. Johnson     Verified     1200
+     TXN-10309 02/14/2025     Revenue     Consulting Fees Operations     Standard Consulting Fees transaction for Operations     2234.56    J. Smith     Verified     4200
+     TXN-10310 03/22/2025      Equity        Common Stock      Sales             Standard Common Stock transaction for Sales     3345.67    T. Brown     Verified     3100
+     TXN-10311 04/18/2025 Liabilities    Unearned Revenue  Marketing     Standard Unearned Revenue transaction for Marketing     4456.78 M. Williams     Verified     2300
+     TXN-10312 05/25/2025     Expense     Office Supplies        G&A            Standard Office Supplies transaction for G&A      112.34  A. Johnson     Verified     5300
+     TXN-10313 06/08/2025      Assets           Inventory Operations           Standard Inventory transaction for Operations     1123.45    J. Smith     Verified     1300
+     TXN-10314 07/04/2025     Revenue       Product Sales      Sales            Standard Product Sales transaction for Sales     2234.56    T. Brown     Verified     4100
+     TXN-10315 08/30/2025      Equity   Retained Earnings  Marketing    Standard Retained Earnings transaction for Marketing     3345.67 M. Williams     Verified     3200
+     TXN-10316 09/27/2025 Liabilities    Accounts Payable        G&A           Standard Accounts Payable transaction for G&A     4456.78  A. Johnson     Verified     2100
+     TXN-10317 10/16/2025     Expense            Salaries Operations            Standard Salaries transaction for Operations      112.34    J. Smith     Verified     5100
+     TXN-10318 11/05/2025      Assets                Cash      Sales                     Standard Cash transaction for Sales     4456.78    T. Brown     Verified     1100
+     TXN-10319 12/21/2025     Revenue     Service Revenue  Marketing      Standard Service Revenue transaction for Marketing      223.45 M. Williams     Verified     4300
+     TXN-10320 01/10/2025      Equity        Common Stock        G&A               Standard Common Stock transaction for G&A     1123.45  A. Johnson     Verified     3100
+     TXN-10321 02/14/2025 Liabilities    Accrued Expenses Operations    Standard Accrued Expenses transaction for Operations     2234.56    J. Smith     Verified     2200
+     TXN-10322 03/22/2025     Expense           Utilities      Sales                Standard Utilities transaction for Sales     3345.67    T. Brown     Verified     5500
+     TXN-10323 04/18/2025      Assets Accounts Receivable  Marketing  Standard Accounts Receivable transaction for Marketing     4456.78 M. Williams     Verified     1200
+     TXN-10324 05/25/2025     Revenue     Consulting Fees        G&A            Standard Consulting Fees transaction for G&A      112.34  A. Johnson     Verified     4200
+     TXN-10325 06/08/2025      Equity   Retained Earnings Operations   Standard Retained Earnings transaction for Operations     1123.45    J. Smith     Verified     3200
+     TXN-10326 07/04/2025 Liabilities    Unearned Revenue      Sales         Standard Unearned Revenue transaction for Sales     2234.56    T. Brown     Verified     2300
+     TXN-10327 08/30/2025     Expense     Office Supplies  Marketing      Standard Office Supplies transaction for Marketing     3345.67 M. Williams     Verified     5300
+     TXN-10328 09/27/2025      Assets           Inventory        G&A                  Standard Inventory transaction for G&A     4456.78  A. Johnson     Verified     1300
+     TXN-10329 10/16/2025     Revenue       Product Sales Operations       Standard Product Sales transaction for Operations      112.34    J. Smith     Verified     4100
+     TXN-10330 11/05/2025      Equity        Common Stock      Sales             Standard Common Stock transaction for Sales     4456.78    T. Brown     Verified     3100
+     TXN-10331 12/21/2025 Liabilities    Accounts Payable  Marketing     Standard Accounts Payable transaction for Marketing      223.45 M. Williams     Verified     2100
+     TXN-10332 01/10/2025     Expense            Salaries        G&A                   Standard Salaries transaction for G&A     1123.45  A. Johnson     Verified     5100
+     TXN-10333 02/14/2025      Assets                Cash Operations                Standard Cash transaction for Operations     2234.56    J. Smith     Verified     1100
+     TXN-10334 03/22/2025     Revenue     Service Revenue      Sales          Standard Service Revenue transaction for Sales     3345.67    T. Brown     Verified     4300
+     TXN-10335 04/18/2025      Equity   Retained Earnings  Marketing    Standard Retained Earnings transaction for Marketing     4456.78 M. Williams     Verified     3200
+     TXN-10336 05/25/2025 Liabilities    Accrued Expenses        G&A           Standard Accrued Expenses transaction for G&A      112.34  A. Johnson     Verified     2200
+     TXN-10337 06/08/2025     Expense           Utilities Operations           Standard Utilities transaction for Operations     1123.45    J. Smith     Verified     5500
+     TXN-10338 07/04/2025      Assets Accounts Receivable      Sales      Standard Accounts Receivable transaction for Sales     2234.56    T. Brown     Verified     1200
+     TXN-10339 08/30/2025     Revenue     Consulting Fees  Marketing      Standard Consulting Fees transaction for Marketing     3345.67 M. Williams     Verified     4200
+     TXN-10340 09/27/2025      Equity        Common Stock        G&A               Standard Common Stock transaction for G&A     4456.78  A. Johnson     Verified     3100
+     TXN-10341 10/16/2025 Liabilities    Unearned Revenue Operations    Standard Unearned Revenue transaction for Operations      112.34    J. Smith     Verified     2300
+     TXN-10342 11/05/2025     Expense     Office Supplies      Sales          Standard Office Supplies transaction for Sales     4456.78    T. Brown     Verified     5300
+     TXN-10343 12/21/2025      Assets           Inventory  Marketing            Standard Inventory transaction for Marketing      223.45 M. Williams     Verified     1300
+     TXN-10344 01/10/2025     Revenue       Product Sales        G&A              Standard Product Sales transaction for G&A     1123.45  A. Johnson     Verified     4100
+     TXN-10345 02/14/2025      Equity   Retained Earnings Operations   Standard Retained Earnings transaction for Operations     2234.56    J. Smith     Verified     3200
+     TXN-10346 03/22/2025 Liabilities    Accounts Payable      Sales         Standard Accounts Payable transaction for Sales     3345.67    T. Brown     Verified     2100
+     TXN-10347 04/18/2025     Expense            Salaries  Marketing             Standard Salaries transaction for Marketing     4456.78 M. Williams     Verified     5100
+     TXN-10348 05/25/2025      Assets                Cash        G&A                       Standard Cash transaction for G&A      112.34  A. Johnson     Verified     1100
+     TXN-10349 06/08/2025     Revenue     Service Revenue Operations     Standard Service Revenue transaction for Operations     1123.45    J. Smith     Verified     4300
+     TXN-10350 07/04/2025      Equity        Common Stock      Sales             Standard Common Stock transaction for Sales     2234.56    T. Brown     Verified     3100
+     TXN-10351 08/30/2025 Liabilities    Accrued Expenses  Marketing     Standard Accrued Expenses transaction for Marketing     3345.67 M. Williams     Verified     2200
+     TXN-10352 09/27/2025     Expense           Utilities        G&A                  Standard Utilities transaction for G&A     4456.78  A. Johnson     Verified     5500
+     TXN-10353 10/16/2025      Assets Accounts Receivable Operations Standard Accounts Receivable transaction for Operations      112.34    J. Smith     Verified     1200
+     TXN-10354 11/05/2025     Revenue     Consulting Fees      Sales          Standard Consulting Fees transaction for Sales     4456.78    T. Brown     Verified     4200
+     TXN-10355 12/21/2025      Equity   Retained Earnings  Marketing    Standard Retained Earnings transaction for Marketing      223.45 M. Williams     Verified     3200
+     TXN-10356 01/10/2025 Liabilities    Unearned Revenue        G&A           Standard Unearned Revenue transaction for G&A     1123.45  A. Johnson     Verified     2300
+     TXN-10357 02/14/2025     Expense     Office Supplies Operations     Standard Office Supplies transaction for Operations     2234.56    J. Smith     Verified     5300
+     TXN-10358 03/22/2025      Assets           Inventory      Sales                Standard Inventory transaction for Sales     3345.67    T. Brown     Verified     1300
+     TXN-10359 04/18/2025     Revenue       Product Sales  Marketing        Standard Product Sales transaction for Marketing     4456.78 M. Williams     Verified     4100
+     TXN-10360 05/25/2025      Equity        Common Stock        G&A               Standard Common Stock transaction for G&A      112.34  A. Johnson     Verified     3100
+     TXN-10361 06/08/2025 Liabilities    Accounts Payable Operations    Standard Accounts Payable transaction for Operations     1123.45    J. Smith     Verified     2100
+     TXN-10362 07/04/2025     Expense            Salaries      Sales                 Standard Salaries transaction for Sales     2234.56    T. Brown     Verified     5100
+     TXN-10363 08/30/2025      Assets                Cash  Marketing                 Standard Cash transaction for Marketing     3345.67 M. Williams     Verified     1100
+     TXN-10364 09/27/2025     Revenue     Service Revenue        G&A            Standard Service Revenue transaction for G&A     4456.78  A. Johnson     Verified     4300
+     TXN-10365 10/16/2025      Equity   Retained Earnings Operations   Standard Retained Earnings transaction for Operations      112.34    J. Smith     Verified     3200
+     TXN-10366 11/05/2025 Liabilities    Accrued Expenses      Sales         Standard Accrued Expenses transaction for Sales     4456.78    T. Brown     Verified     2200
+     TXN-10367 12/21/2025     Expense           Utilities  Marketing            Standard Utilities transaction for Marketing      223.45 M. Williams     Verified     5500
+     TXN-10368 01/10/2025      Assets Accounts Receivable        G&A        Standard Accounts Receivable transaction for G&A     1123.45  A. Johnson     Verified     1200
+     TXN-10369 02/14/2025     Revenue     Consulting Fees Operations     Standard Consulting Fees transaction for Operations     2234.56    J. Smith     Verified     4200
+     TXN-10370 03/22/2025      Equity        Common Stock      Sales             Standard Common Stock transaction for Sales     3345.67    T. Brown     Verified     3100
+     TXN-10371 04/18/2025 Liabilities    Unearned Revenue  Marketing     Standard Unearned Revenue transaction for Marketing     4456.78 M. Williams     Verified     2300
+     TXN-10372 05/25/2025     Expense     Office Supplies        G&A            Standard Office Supplies transaction for G&A      112.34  A. Johnson     Verified     5300
+     TXN-10373 06/08/2025      Assets           Inventory Operations           Standard Inventory transaction for Operations     1123.45    J. Smith     Verified     1300
+     TXN-10374 07/04/2025     Revenue       Product Sales      Sales            Standard Product Sales transaction for Sales     2234.56    T. Brown     Verified     4100
+     TXN-10375 08/30/2025      Equity   Retained Earnings  Marketing    Standard Retained Earnings transaction for Marketing     3345.67 M. Williams     Verified     3200
+     TXN-10376 09/27/2025 Liabilities    Accounts Payable        G&A           Standard Accounts Payable transaction for G&A     4456.78  A. Johnson     Verified     2100
+     TXN-10377 10/16/2025     Expense            Salaries Operations            Standard Salaries transaction for Operations      112.34    J. Smith     Verified     5100
+     TXN-10378 11/05/2025      Assets                Cash      Sales                     Standard Cash transaction for Sales     4456.78    T. Brown     Verified     1100
+     TXN-10379 12/21/2025     Revenue     Service Revenue  Marketing      Standard Service Revenue transaction for Marketing      223.45 M. Williams     Verified     4300
+     TXN-10380 01/10/2025      Equity        Common Stock        G&A               Standard Common Stock transaction for G&A     1123.45  A. Johnson     Verified     3100
+     TXN-10381 02/14/2025 Liabilities    Accrued Expenses Operations    Standard Accrued Expenses transaction for Operations     2234.56    J. Smith     Verified     2200
+     TXN-10382 03/22/2025     Expense           Utilities      Sales                Standard Utilities transaction for Sales     3345.67    T. Brown     Verified     5500
+     TXN-10383 04/18/2025      Assets Accounts Receivable  Marketing  Standard Accounts Receivable transaction for Marketing     4456.78 M. Williams     Verified     1200
+     TXN-10384 05/25/2025     Revenue     Consulting Fees        G&A            Standard Consulting Fees transaction for G&A      112.34  A. Johnson     Verified     4200
+     TXN-10385 06/08/2025      Equity   Retained Earnings Operations   Standard Retained Earnings transaction for Operations     1123.45    J. Smith     Verified     3200
+     TXN-10386 07/04/2025 Liabilities    Unearned Revenue      Sales         Standard Unearned Revenue transaction for Sales     2234.56    T. Brown     Verified     2300
+     TXN-10387 08/30/2025     Expense     Office Supplies  Marketing      Standard Office Supplies transaction for Marketing     3345.67 M. Williams     Verified     5300
+     TXN-10388 09/27/2025      Assets           Inventory        G&A                  Standard Inventory transaction for G&A     4456.78  A. Johnson     Verified     1300
+     TXN-10389 10/16/2025     Revenue       Product Sales Operations       Standard Product Sales transaction for Operations      112.34    J. Smith     Verified     4100
+     TXN-10390 11/05/2025      Equity        Common Stock      Sales             Standard Common Stock transaction for Sales     4456.78    T. Brown     Verified     3100
+     TXN-10391 12/21/2025 Liabilities    Accounts Payable  Marketing     Standard Accounts Payable transaction for Marketing      223.45 M. Williams     Verified     2100
+     TXN-10392 01/10/2025     Expense            Salaries        G&A                   Standard Salaries transaction for G&A     1123.45  A. Johnson     Verified     5100
+     TXN-10393 02/14/2025      Assets                Cash Operations                Standard Cash transaction for Operations     2234.56    J. Smith     Verified     1100
+     TXN-10394 03/22/2025     Revenue     Service Revenue      Sales          Standard Service Revenue transaction for Sales     3345.67    T. Brown     Verified     4300
+     TXN-10395 04/18/2025      Equity   Retained Earnings  Marketing    Standard Retained Earnings transaction for Marketing     4456.78 M. Williams     Verified     3200
+     TXN-10396 05/25/2025 Liabilities    Accrued Expenses        G&A           Standard Accrued Expenses transaction for G&A      112.34  A. Johnson     Verified     2200
+     TXN-10397 06/08/2025     Expense           Utilities Operations           Standard Utilities transaction for Operations     1123.45    J. Smith     Verified     5500
+     TXN-10398 07/04/2025      Assets Accounts Receivable      Sales      Standard Accounts Receivable transaction for Sales     2234.56    T. Brown     Verified     1200
+     TXN-10399 08/30/2025     Revenue     Consulting Fees  Marketing      Standard Consulting Fees transaction for Marketing     3345.67 M. Williams     Verified     4200
+--- ROWS 401 TO 500 OF 500 ---
+Transaction_ID       Date    Category        Account_Name Department                                             Description  Amount_USD Approved_By Audit_Status  GL_Code
+     TXN-10400 09/27/2025      Equity        Common Stock        G&A               Standard Common Stock transaction for G&A     4456.78  A. Johnson     Verified     3100
+     TXN-10401 10/16/2025 Liabilities    Unearned Revenue Operations    Standard Unearned Revenue transaction for Operations      112.34    J. Smith     Verified     2300
+     TXN-10402 11/05/2025     Expense     Office Supplies      Sales          Standard Office Supplies transaction for Sales     4456.78    T. Brown     Verified     5300
+     TXN-10403 12/21/2025      Assets           Inventory  Marketing            Standard Inventory transaction for Marketing      223.45 M. Williams     Verified     1300
+     TXN-10404 01/10/2025     Revenue       Product Sales        G&A              Standard Product Sales transaction for G&A     1123.45  A. Johnson     Verified     4100
+     TXN-10405 02/14/2025      Equity   Retained Earnings Operations   Standard Retained Earnings transaction for Operations     2234.56    J. Smith     Verified     3200
+     TXN-10406 03/22/2025 Liabilities    Accounts Payable      Sales         Standard Accounts Payable transaction for Sales     3345.67    T. Brown     Verified     2100
+     TXN-10407 04/18/2025     Expense            Salaries  Marketing             Standard Salaries transaction for Marketing     4456.78 M. Williams     Verified     5100
+     TXN-10408 05/25/2025      Assets                Cash        G&A                       Standard Cash transaction for G&A      112.34  A. Johnson     Verified     1100
+     TXN-10409 06/08/2025     Revenue     Service Revenue Operations     Standard Service Revenue transaction for Operations     1123.45    J. Smith     Verified     4300
+     TXN-10410 07/04/2025      Equity        Common Stock      Sales             Standard Common Stock transaction for Sales     2234.56    T. Brown     Verified     3100
+     TXN-10411 08/30/2025 Liabilities    Accrued Expenses  Marketing     Standard Accrued Expenses transaction for Marketing     3345.67 M. Williams     Verified     2200
+     TXN-10412 09/27/2025     Expense           Utilities        G&A                  Standard Utilities transaction for G&A     4456.78  A. Johnson     Verified     5500
+     TXN-10413 10/16/2025      Assets Accounts Receivable Operations Standard Accounts Receivable transaction for Operations      112.34    J. Smith     Verified     1200
+     TXN-10414 11/05/2025     Revenue     Consulting Fees      Sales          Standard Consulting Fees transaction for Sales     4456.78    T. Brown     Verified     4200
+     TXN-10415 12/21/2025      Equity   Retained Earnings  Marketing    Standard Retained Earnings transaction for Marketing      223.45 M. Williams     Verified     3200
+     TXN-10416 01/10/2025 Liabilities    Unearned Revenue        G&A           Standard Unearned Revenue transaction for G&A     1123.45  A. Johnson     Verified     2300
+     TXN-10417 02/14/2025     Expense     Office Supplies Operations     Standard Office Supplies transaction for Operations     2234.56    J. Smith     Verified     5300
+     TXN-10418 03/22/2025      Assets           Inventory      Sales                Standard Inventory transaction for Sales     3345.67    T. Brown     Verified     1300
+     TXN-10419 04/18/2025     Revenue       Product Sales  Marketing        Standard Product Sales transaction for Marketing     4456.78 M. Williams     Verified     4100
+     TXN-10420 05/25/2025      Equity        Common Stock        G&A               Standard Common Stock transaction for G&A      112.34  A. Johnson     Verified     3100
+     TXN-10421 06/08/2025 Liabilities    Accounts Payable Operations    Standard Accounts Payable transaction for Operations     1123.45    J. Smith     Verified     2100
+     TXN-10422 07/04/2025     Expense            Salaries      Sales                 Standard Salaries transaction for Sales     2234.56    T. Brown     Verified     5100
+     TXN-10423 08/30/2025      Assets                Cash  Marketing                 Standard Cash transaction for Marketing     3345.67 M. Williams     Verified     1100
+     TXN-10424 09/27/2025     Revenue     Service Revenue        G&A            Standard Service Revenue transaction for G&A     4456.78  A. Johnson     Verified     4300
+     TXN-10425 10/16/2025      Equity   Retained Earnings Operations   Standard Retained Earnings transaction for Operations      112.34    J. Smith     Verified     3200
+     TXN-10426 11/05/2025 Liabilities    Accrued Expenses      Sales         Standard Accrued Expenses transaction for Sales     4456.78    T. Brown     Verified     2200
+     TXN-10427 12/21/2025     Expense           Utilities  Marketing            Standard Utilities transaction for Marketing      223.45 M. Williams     Verified     5500
+     TXN-10428 01/10/2025      Assets Accounts Receivable        G&A        Standard Accounts Receivable transaction for G&A     1123.45  A. Johnson     Verified     1200
+     TXN-10429 02/14/2025     Revenue     Consulting Fees Operations     Standard Consulting Fees transaction for Operations     2234.56    J. Smith     Verified     4200
+     TXN-10430 03/22/2025      Equity        Common Stock      Sales             Standard Common Stock transaction for Sales     3345.67    T. Brown     Verified     3100
+     TXN-10431 04/18/2025 Liabilities    Unearned Revenue  Marketing     Standard Unearned Revenue transaction for Marketing     4456.78 M. Williams     Verified     2300
+     TXN-10432 05/25/2025     Expense     Office Supplies        G&A            Standard Office Supplies transaction for G&A      112.34  A. Johnson     Verified     5300
+     TXN-10433 06/08/2025      Assets           Inventory Operations           Standard Inventory transaction for Operations     1123.45    J. Smith     Verified     1300
+     TXN-10434 07/04/2025     Revenue       Product Sales      Sales            Standard Product Sales transaction for Sales     2234.56    T. Brown     Verified     4100
+     TXN-10435 08/30/2025      Equity   Retained Earnings  Marketing    Standard Retained Earnings transaction for Marketing     3345.67 M. Williams     Verified     3200
+     TXN-10436 09/27/2025 Liabilities    Accounts Payable        G&A           Standard Accounts Payable transaction for G&A     4456.78  A. Johnson     Verified     2100
+     TXN-10437 10/16/2025     Expense            Salaries Operations            Standard Salaries transaction for Operations      112.34    J. Smith     Verified     5100
+     TXN-10438 11/05/2025      Assets                Cash      Sales                     Standard Cash transaction for Sales     4456.78    T. Brown     Verified     1100
+     TXN-10439 12/21/2025     Revenue     Service Revenue  Marketing      Standard Service Revenue transaction for Marketing      223.45 M. Williams     Verified     4300
+     TXN-10440 01/10/2025      Equity        Common Stock        G&A               Standard Common Stock transaction for G&A     1123.45  A. Johnson     Verified     3100
+     TXN-10441 02/14/2025 Liabilities    Accrued Expenses Operations    Standard Accrued Expenses transaction for Operations     2234.56    J. Smith     Verified     2200
+     TXN-10442 03/22/2025     Expense           Utilities      Sales                Standard Utilities transaction for Sales     3345.67    T. Brown     Verified     5500
+     TXN-10443 04/18/2025      Assets Accounts Receivable  Marketing  Standard Accounts Receivable transaction for Marketing     4456.78 M. Williams     Verified     1200
+     TXN-10444 05/25/2025     Revenue     Consulting Fees        G&A            Standard Consulting Fees transaction for G&A      112.34  A. Johnson     Verified     4200
+     TXN-10445 06/08/2025      Equity   Retained Earnings Operations   Standard Retained Earnings transaction for Operations     1123.45    J. Smith     Verified     3200
+     TXN-10446 07/04/2025 Liabilities    Unearned Revenue      Sales         Standard Unearned Revenue transaction for Sales     2234.56    T. Brown     Verified     2300
+     TXN-10447 08/30/2025     Expense     Office Supplies  Marketing      Standard Office Supplies transaction for Marketing     3345.67 M. Williams     Verified     5300
+     TXN-10448 09/27/2025      Assets           Inventory        G&A                  Standard Inventory transaction for G&A     4456.78  A. Johnson     Verified     1300
+     TXN-10449 10/16/2025     Revenue       Product Sales Operations       Standard Product Sales transaction for Operations      112.34    J. Smith     Verified     4100
+     TXN-10450 11/05/2025      Equity        Common Stock      Sales             Standard Common Stock transaction for Sales     4456.78    T. Brown     Verified     3100
+     TXN-10451 12/21/2025 Liabilities    Accounts Payable  Marketing     Standard Accounts Payable transaction for Marketing      223.45 M. Williams     Verified     2100
+     TXN-10452 01/10/2025     Expense            Salaries        G&A                   Standard Salaries transaction for G&A     1123.45  A. Johnson     Verified     5100
+     TXN-10453 02/14/2025      Assets                Cash Operations                Standard Cash transaction for Operations     2234.56    J. Smith     Verified     1100
+     TXN-10454 03/22/2025     Revenue     Service Revenue      Sales          Standard Service Revenue transaction for Sales     3345.67    T. Brown     Verified     4300
+     TXN-10455 04/18/2025      Equity   Retained Earnings  Marketing    Standard Retained Earnings transaction for Marketing     4456.78 M. Williams     Verified     3200
+     TXN-10456 05/25/2025 Liabilities    Accrued Expenses        G&A           Standard Accrued Expenses transaction for G&A      112.34  A. Johnson     Verified     2200
+     TXN-10457 06/08/2025     Expense           Utilities Operations           Standard Utilities transaction for Operations     1123.45    J. Smith     Verified     5500
+     TXN-10458 07/04/2025      Assets Accounts Receivable      Sales      Standard Accounts Receivable transaction for Sales     2234.56    T. Brown     Verified     1200
+     TXN-10459 08/30/2025     Revenue     Consulting Fees  Marketing      Standard Consulting Fees transaction for Marketing     3345.67 M. Williams     Verified     4200
+     TXN-10460 09/27/2025      Equity        Common Stock        G&A               Standard Common Stock transaction for G&A     4456.78  A. Johnson     Verified     3100
+     TXN-10461 10/16/2025 Liabilities    Unearned Revenue Operations    Standard Unearned Revenue transaction for Operations      112.34    J. Smith     Verified     2300
+     TXN-10462 11/05/2025     Expense     Office Supplies      Sales          Standard Office Supplies transaction for Sales     4456.78    T. Brown     Verified     5300
+     TXN-10463 12/21/2025      Assets           Inventory  Marketing            Standard Inventory transaction for Marketing      223.45 M. Williams     Verified     1300
+     TXN-10464 01/10/2025     Revenue       Product Sales        G&A              Standard Product Sales transaction for G&A     1123.45  A. Johnson     Verified     4100
+     TXN-10465 02/14/2025      Equity   Retained Earnings Operations   Standard Retained Earnings transaction for Operations     2234.56    J. Smith     Verified     3200
+     TXN-10466 03/22/2025 Liabilities    Accounts Payable      Sales         Standard Accounts Payable transaction for Sales     3345.67    T. Brown     Verified     2100
+     TXN-10467 04/18/2025     Expense            Salaries  Marketing             Standard Salaries transaction for Marketing     4456.78 M. Williams     Verified     5100
+     TXN-10468 05/25/2025      Assets                Cash        G&A                       Standard Cash transaction for G&A      112.34  A. Johnson     Verified     1100
+     TXN-10469 06/08/2025     Revenue     Service Revenue Operations     Standard Service Revenue transaction for Operations     1123.45    J. Smith     Verified     4300
+     TXN-10470 07/04/2025      Equity        Common Stock      Sales             Standard Common Stock transaction for Sales     2234.56    T. Brown     Verified     3100
+     TXN-10471 08/30/2025 Liabilities    Accrued Expenses  Marketing     Standard Accrued Expenses transaction for Marketing     3345.67 M. Williams     Verified     2200
+     TXN-10472 09/27/2025     Expense           Utilities        G&A                  Standard Utilities transaction for G&A     4456.78  A. Johnson     Verified     5500
+     TXN-10473 10/16/2025      Assets Accounts Receivable Operations Standard Accounts Receivable transaction for Operations      112.34    J. Smith     Verified     1200
+     TXN-10474 11/05/2025     Revenue     Consulting Fees      Sales          Standard Consulting Fees transaction for Sales     4456.78    T. Brown     Verified     4200
+     TXN-10475 12/21/2025      Equity   Retained Earnings  Marketing    Standard Retained Earnings transaction for Marketing      223.45 M. Williams     Verified     3200
+     TXN-10476 01/10/2025 Liabilities    Unearned Revenue        G&A           Standard Unearned Revenue transaction for G&A     1123.45  A. Johnson     Verified     2300
+     TXN-10477 02/14/2025     Expense     Office Supplies Operations     Standard Office Supplies transaction for Operations     2234.56    J. Smith     Verified     5300
+     TXN-10478 03/22/2025      Assets           Inventory      Sales                Standard Inventory transaction for Sales     3345.67    T. Brown     Verified     1300
+     TXN-10479 04/18/2025     Revenue       Product Sales  Marketing        Standard Product Sales transaction for Marketing     4456.78 M. Williams     Verified     4100
+     TXN-10480 05/25/2025      Equity        Common Stock        G&A               Standard Common Stock transaction for G&A      112.34  A. Johnson     Verified     3100
+     TXN-10481 06/08/2025 Liabilities    Accounts Payable Operations    Standard Accounts Payable transaction for Operations     1123.45    J. Smith     Verified     2100
+     TXN-10482 07/04/2025     Expense            Salaries      Sales                 Standard Salaries transaction for Sales     2234.56    T. Brown     Verified     5100
+     TXN-10483 08/30/2025      Assets                Cash  Marketing                 Standard Cash transaction for Marketing     3345.67 M. Williams     Verified     1100
+     TXN-10484 09/27/2025     Revenue     Service Revenue        G&A            Standard Service Revenue transaction for G&A     4456.78  A. Johnson     Verified     4300
+     TXN-10485 10/16/2025      Equity   Retained Earnings Operations   Standard Retained Earnings transaction for Operations      112.34    J. Smith     Verified     3200
+     TXN-10486 11/05/2025 Liabilities    Accrued Expenses      Sales         Standard Accrued Expenses transaction for Sales     4456.78    T. Brown     Verified     2200
+     TXN-10487 12/21/2025     Expense           Utilities  Marketing            Standard Utilities transaction for Marketing      223.45 M. Williams     Verified     5500
+     TXN-10488 01/10/2025      Assets Accounts Receivable        G&A        Standard Accounts Receivable transaction for G&A     1123.45  A. Johnson     Verified     1200
+     TXN-10489 02/14/2025     Revenue     Consulting Fees Operations     Standard Consulting Fees transaction for Operations     2234.56    J. Smith     Verified     4200
+     TXN-10490 03/22/2025      Equity        Common Stock      Sales             Standard Common Stock transaction for Sales     3345.67    T. Brown     Verified     3100
+     TXN-10491 04/18/2025 Liabilities    Unearned Revenue  Marketing     Standard Unearned Revenue transaction for Marketing     4456.78 M. Williams     Verified     2300
+     TXN-10492 05/25/2025     Expense     Office Supplies        G&A            Standard Office Supplies transaction for G&A      112.34  A. Johnson     Verified     5300
+     TXN-10493 06/08/2025      Assets           Inventory Operations           Standard Inventory transaction for Operations     1123.45    J. Smith     Verified     1300
+     TXN-10494 07/04/2025     Revenue       Product Sales      Sales            Standard Product Sales transaction for Sales     2234.56    T. Brown     Verified     4100
+     TXN-10495 08/30/2025      Equity   Retained Earnings  Marketing    Standard Retained Earnings transaction for Marketing     3345.67 M. Williams     Verified     3200
+     TXN-10496 09/27/2025 Liabilities    Accounts Payable        G&A           Standard Accounts Payable transaction for G&A     4456.78  A. Johnson     Verified     2100
+     TXN-10497 10/16/2025     Expense            Salaries Operations            Standard Salaries transaction for Operations      112.34    J. Smith     Verified     5100
+     TXN-10498 11/05/2025      Assets                Cash      Sales                     Standard Cash transaction for Sales     4456.78    T. Brown     Verified     1100
+     TXN-10499 12/21/2025     Revenue     Service Revenue  Marketing      Standard Service Revenue transaction for Marketing      223.45 M. Williams     Verified     4300
