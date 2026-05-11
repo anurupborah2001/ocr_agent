@@ -81,6 +81,9 @@ def load_main_with_langgraph_stubs(monkeypatch):
         sys.modules, "langgraph.graph.message", stub_graph_message_module
     )
     monkeypatch.setitem(sys.modules, "langgraph.prebuilt", stub_prebuilt_module)
+    stub_tools_module = ModuleType("agents.tools")
+    stub_tools_module.extract_asset_text = object()
+    monkeypatch.setitem(sys.modules, "agents.tools", stub_tools_module)
     sys.modules.pop("ocr_types.agent_type", None)
     sys.modules.pop("main", None)
 

@@ -1,5 +1,7 @@
+import json
 import os
 from pathlib import Path
+from typing import Any
 
 from dotenv import load_dotenv
 from langchain_core.messages import HumanMessage, SystemMessage
@@ -7,8 +9,8 @@ from langchain_openai import ChatOpenAI
 from langgraph.graph import END, START, StateGraph
 from langgraph.prebuilt import ToolNode, tools_condition
 
-from agent.tools import extract_text
-from ocr_types.agent_type import OCRAgent
+from agents.tools import extract_asset_text
+from ocr_types.agent_type import MultimodalOCRAgent
 
 load_dotenv()
 
@@ -16,7 +18,8 @@ DEFAULT_ASSET_PATH = Path("assets/cursive_writing.pdf")
 DEFAULT_DIAGRAM_PATH = Path("state_graph_ocr.png")
 OCR_AGENT = "ocr_agent"
 OCR_TOOL = "ocr_tool"
-TOOLS = [extract_text]
+FINAL = "final_node"
+TOOLS = [extract_asset_text]
 
 
 def create_llm_agent() -> ChatOpenAI:
@@ -28,23 +31,38 @@ def create_llm_agent() -> ChatOpenAI:
     ).bind_tools(TOOLS)
 
 
-llm_agent = create_llm_agent()
+llm_agent: Any | None = None
 
 
-def ocr_agent(state: OCRAgent, agent: ChatOpenAI | None = None) -> OCRAgent:
+def get_llm_agent() -> ChatOpenAI:
+    global llm_agent
+    if llm_agent is None:
+        llm_agent = create_llm_agent()
+    return llm_agent
+
+
+def ocr_agent(
+    state: MultimodalOCRAgent,
+    agent: ChatOpenAI | None = None,
+) -> MultimodalOCRAgent:
     asset_path = state["asset_path"]
 
     system_instruction = f"""
-You are an OCR agent.
+You are a multimodal OCR agent. You will be given an asset path for a file such as
+an image, PDF, audio file, or video. Your task is to extract text from the asset.
 
-You can extract text from images, PDFs, and scanned documents.
-Use the available OCR tool when text extraction is required.
+Use the `extract_asset_text` tool to:
+1. Detect the file type.
+2. Detect whether image text is handwritten or printed.
+3. Extract the text.
+4. Save the output as a txt file.
 
-Asset path:
-{asset_path}
+Asset path: {asset_path}
+
+After the tool returns, summarize where the output was saved.
 """
 
-    active_agent = agent or llm_agent
+    active_agent = agent or get_llm_agent()
     response = active_agent.invoke(
         [SystemMessage(content=system_instruction)] + state["messages"]
     )
@@ -55,20 +73,45 @@ Asset path:
     }
 
 
+def final_node(state: MultimodalOCRAgent) -> MultimodalOCRAgent:
+    for msg in reversed(state["messages"]):
+        if getattr(msg, "type", None) == "tool":
+            data = json.loads(msg.content)
+            return {
+                "asset_path": state["asset_path"],
+                "file_type": data.get("file_type"),
+                "image_text_type": data.get("image_text_type"),
+                "extracted_text": data.get("extracted_text"),
+                "output_path": data.get("output_path"),
+                "messages": [
+                    HumanMessage(
+                        content=f"Saved extracted text to {data.get('output_path')}"
+                    )
+                ],
+            }
+
+    return {
+        "asset_path": state["asset_path"],
+        "messages": state["messages"],
+    }
+
+
 def build_state_graph():
-    builder = StateGraph(OCRAgent)
+    builder = StateGraph(MultimodalOCRAgent)
     builder.add_node(OCR_AGENT, ocr_agent)
     builder.add_node(OCR_TOOL, ToolNode(TOOLS))
+    builder.add_node(FINAL, final_node)
     builder.add_edge(START, OCR_AGENT)
     builder.add_conditional_edges(
         OCR_AGENT,
         tools_condition,
         {
             "tools": OCR_TOOL,
-            END: END,
+            END: FINAL,
         },
     )
     builder.add_edge(OCR_TOOL, OCR_AGENT)
+    builder.add_edge(FINAL, END)
     return builder.compile()
 
 

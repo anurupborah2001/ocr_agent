@@ -1,42 +1,35 @@
+import json
 from pathlib import Path
-from types import SimpleNamespace
 
-from agent import tools
-
-
-class StubOCRModel:
-    def __init__(self, content: str):
-        self.content = content
-        self.prompts = []
-
-    def invoke(self, prompt):
-        self.prompts.append(prompt)
-        return SimpleNamespace(content=self.content)
+from agents import tools
 
 
-def test_extract_text_saves_output_and_uses_expected_mime_type(
+def test_extract_asset_text_saves_output_and_returns_metadata(
     monkeypatch, tmp_path: Path
 ):
     asset_path = tmp_path / "sample.png"
     asset_path.write_bytes(b"fake-image-bytes")
-
     output_dir = tmp_path / "output"
-    stub_model = StubOCRModel("Detected text\n")
 
     monkeypatch.setattr(tools, "OUTPUT_FOLDER", str(output_dir))
-    monkeypatch.setattr(tools, "llm_ocr_agent", stub_model)
+    monkeypatch.setattr(tools, "detect_file_type", lambda _path: "image")
+    monkeypatch.setattr(
+        tools, "classify_image_text_type_with_llm", lambda _path: "printed_image"
+    )
+    monkeypatch.setattr(tools, "extract_any", lambda **_kwargs: "Detected text")
 
-    extracted_text = tools.extract_text.func(str(asset_path))
+    payload = json.loads(tools.extract_asset_text.func(str(asset_path)))
 
-    assert extracted_text == "Detected text"
-    assert (output_dir / "sample.txt").read_text(encoding="utf-8") == "Detected text"
-
-    message_content = stub_model.prompts[0][0].content
-    assert message_content[0]["type"] == "text"
-    assert message_content[1]["image_url"]["url"].startswith("data:image/png;base64,")
+    assert payload["file_type"] == "image"
+    assert payload["image_text_type"] == "printed_image"
+    assert payload["extracted_text"] == "Detected text"
+    assert Path(payload["output_path"]).read_text(encoding="utf-8") == "Detected text"
 
 
-def test_extract_text_returns_error_message_for_missing_file():
-    result = tools.extract_text.func("missing-file.png")
-
-    assert result.startswith("OCR extraction failed:")
+def test_extract_asset_text_rejects_missing_files():
+    try:
+        tools.extract_asset_text.func("missing-file.png")
+    except FileNotFoundError as exc:
+        assert "does not exist" in str(exc)
+    else:  # pragma: no cover
+        raise AssertionError("Expected FileNotFoundError for a missing asset path")
