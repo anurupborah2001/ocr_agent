@@ -167,7 +167,3 @@ This codebase is a strong starting point for adding:
 - The current sample execution path is hardcoded in [main.py](/Users/anuborah@sphnet.com.sg/IdeaProjects/ocr-agent/main.py).
 - The OCR tool writes plain text files to `output/`.
 - The graph image is generated programmatically each time the script runs.
-
-## License
-
-Add your preferred license here before publishing publicly.
