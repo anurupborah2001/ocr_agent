@@ -14,7 +14,9 @@ from ocr_types.agent_type import MultimodalOCRAgent
 
 load_dotenv()
 
-DEFAULT_ASSET_PATH = Path("assets/cursive_writing.pdf")
+# DEFAULT_ASSET_PATH = Path("assets/bryan-adams-summer-of-69.mp4")
+DEFAULT_ASSET_PATH = "assets/ocr.pptx"
+# DEFAULT_ASSET_PATH = "https://www.youtube.com/watch?v=3eT464L1YRA&list=RD3eT464L1YRA"
 DEFAULT_DIAGRAM_PATH = Path("state_graph_ocr.png")
 OCR_AGENT = "ocr_agent"
 OCR_TOOL = "ocr_tool"
@@ -107,10 +109,10 @@ def build_state_graph():
         tools_condition,
         {
             "tools": OCR_TOOL,
-            END: FINAL,
+            END: END,
         },
     )
-    builder.add_edge(OCR_TOOL, OCR_AGENT)
+    builder.add_edge(OCR_TOOL, FINAL)
     builder.add_edge(FINAL, END)
     return builder.compile()
 
